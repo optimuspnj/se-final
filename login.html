@@ -34,19 +34,20 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!<br><small>Please Login to the System.</small></h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" class="needs-validation" novalidate>
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
+                                            <input type="text" class="form-control form-control-user"
+                                                id="user" aria-describedby="emailHelp"
+                                                placeholder="Enter username..." required>
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
+                                                id="pass" placeholder="Password" required>
                                         </div>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
-                                            <i class="fas fa-sign-in-alt fa-fw"></i> Login
-                                        </a>
+                                        <button type="button" class="btn btn-primary btn-user btn-block mb-3" onclick="loadDoc()">
+                                            <i class="fas fa-sign-in-alt fa-fw"></i> Login <span id="save-btn-spinner" class="spinner-border-sm"></span>
+                                        </button>
+                                        <div id="demo"></div>
                                     </form>
                                     <hr>
                                     <div class="text-center">
@@ -70,6 +71,23 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/custom-js.js"></script>
+
+    <script>
+        function loadDoc() {
+        var val1 = $('#user').val();
+        var val2 = $('#pass').val();
+        $("#save-btn-spinner").addClass("spinner-border");
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost/back-end/login.php',
+                data: { user: val1, pass: val2 },
+                success: function(response) {
+                    $("#save-btn-spinner").removeClass("spinner-border");
+                    $('#demo').html(response);
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>
