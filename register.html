@@ -99,7 +99,7 @@
         $("#save-btn-spinner").addClass("spinner-border");
             $.ajax({
                 type: 'POST',
-                url: 'http://localhost/back-end/register.php',
+                url: 'http://se-final.42web.io/register.php',
                 data: { fname: val1, lname: val2, email: val3, uname: val4, pass: val5},
                 success: function(response) {
                     $("#save-btn-spinner").removeClass("spinner-border");
