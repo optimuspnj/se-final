@@ -10866,6 +10866,13 @@ a:focus {
   background-size: cover;
 }
 
+.bg-add-stock-image {
+  background: url("../img/add_stock.png");
+  background-position: center;
+  background-size: cover;
+}
+
+
 .bg-password-image {
   background: url("../img/forgot-pw.png");
   background-position: center;
@@ -10880,6 +10887,11 @@ form.user .form-control-user {
   font-size: 0.8rem;
   border-radius: 10rem;
   padding: 1.5rem 1rem;
+}
+
+form.user .form-control-user-dropdown {
+  font-size: 0.8rem;
+  border-radius: 10rem;
 }
 
 form.user .btn-user {
