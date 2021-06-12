@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Add Stocks</title>
+    <title>Return Stocks</title>
 
     <!-- Custom fonts-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -36,7 +36,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-cube"></i>
-                    <span>Add Stocks</span></a>
+                    <span>Return Stocks</span></a>
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -70,7 +70,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Stock Functions:</h6>
-                        <a class="collapse-item active" href="#">Add Stocks</a>
+                        <a class="collapse-item active" href="#">Return Stocks</a>
                         <a class="collapse-item" href="./mngr_stocks.html">View/Update Stocks</a>
                         <a class="collapse-item" href="./mngr_retrn_stock.html">Return Stocks</a>
                     </div>
@@ -141,7 +141,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Add Stocks</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Return Stocks</h1>
                     </div>
 
                         
@@ -154,22 +154,34 @@
                                     <div class="card-body p-0">
                                         <!-- Nested Row within Card Body -->
                                         <div class="row">
-                                            <div class="col-lg-5 d-none d-lg-block bg-add-stock-image"></div>
+                                            <div class="col-lg-5 d-none d-lg-block bg-return-stock-image"></div>
                                             <div class="col-lg-7">
                                                 <div class="p-5">
                                                     <div class="text-center">
-                                                        <h1 class="h4 text-gray-900 mb-4">Enter Stock Details</h1>
+                                                        <h1 class="h4 text-gray-900 mb-4">Enter Returning Stock Details</h1>
                                                     </div>
                                                     <form class="user">
                                                         <div class="form-group">
-                                                            <input type="text" class="form-control form-control-user" id="iname" placeholder="Item Name" name="itemName">
+                                                            
+                                                            <select class="form-control form-control-user-dropdown" name="supName" id="supName">
+                                                                <option value="">Stock ID (Select One)</option>
+                                                                <option value="genext"></option>
+                                                                <option value="singer"></option>
+                                                                <option value="keels"></option>
+                                                                <option value="ishop"></option>
+                                                                <option value="sinhagiri"></option>
+                                                            </select>
+                                                            <span class="small">* Other info fields will complete automatically.</span>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="text" class="form-control form-control-user" id="bname" placeholder="Brand Name" name="brandName">
+                                                            <input disabled type="text" class="form-control form-control-user" id="iname" placeholder="Item Name" name="itemName">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input disabled type="text" class="form-control form-control-user" id="bname" placeholder="Brand Name" name="brandName">
                                                         </div>
                                                         <div class="form-group row">
                                                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                                                  <select class="form-control form-control-user-dropdown" name="supName" id="supName">
+                                                                  <select disabled class="form-control form-control-user-dropdown" name="supName" id="supName">
                                                                     <option value="">Company (Select One)</option>
                                                                     <option value="genext">Genext (Pvt) Ltd.</option>
                                                                     <option value="singer">Singer Sri Lanka</option>
@@ -179,7 +191,7 @@
                                                                 </select>
                                                             </div>
                                                             <div class="col-sm-6">
-                                                                <select class="form-control form-control-user-dropdown" name="supName" id="supName">
+                                                                <select disabled class="form-control form-control-user-dropdown" name="supName" id="supName">
                                                                     <option value="">Man. Year (Select One)</option>
                                                                     <option value="2017">2017</option>
                                                                     <option value="2018">2018</option>
@@ -191,16 +203,19 @@
                                                         </div>
                                                         <div class="form-group row">
                                                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                                                <input type="text" class="form-control form-control-user" id="bname" placeholder="Whole Sale Price" name="brandName">  
+                                                                <input disabled type="text" class="form-control form-control-user" id="bname" placeholder="Whole Sale Price" name="brandName">  
                                                             </div>
                                                             <div class="col-sm-6">
                                                                 <input type="text" class="form-control form-control-user" id="quantity" placeholder="Quantity" name="quantity">
                                                             </div>
                                                         </div>
+                                                        <div class="form-group">
+                                                            <textarea class="form-control" id="return_note" name="return_note" rows="4" cols="50">Return Notice</textarea>
+                                                        </div>
                                                         <div class="form-group row">
                                                             <div class="col-sm-6 mb-3 mb-sm-0">
                                                                 <button type="button" class="btn btn-primary btn-user btn-block mb-3" onclick="loadDoc()">
-                                                                    <i class="fas fa-file-import fa-fw"></i> Submit New Stock <span id="save-btn-spinner" class="spinner-border-sm"></span>
+                                                                    <i class="fas fa-file-import fa-fw"></i> Return Stock<span id="save-btn-spinner" class="spinner-border-sm"></span>
                                                                 </button>
                                                             </div>
                                                             <div class="col-sm-6">

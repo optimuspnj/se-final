@@ -10872,6 +10872,12 @@ a:focus {
   background-size: cover;
 }
 
+.bg-return-stock-image {
+  background: url("../img/return.png");
+  background-position: center;
+  background-size: cover;
+}
+
 .bg-add-supplier-image {
   background: url("../img/add_supplier.png");
   background-position: center;

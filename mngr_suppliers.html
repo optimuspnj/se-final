@@ -35,8 +35,8 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Suppliers</span></a>
+                    <i class="fas fa-fw fa-truck"></i>
+                    <span>Supplier Details</span></a>
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -44,23 +44,37 @@
             <div class="sidebar-heading">
                 Functions
             </div>
-            <!-- Nav Item - Charts -->
+            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="far fa-fw fa-plus-square"></i>
-                    <span>Add Stock</span></a>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-truck"></i>
+                    <span>Suppliers</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Supplier Functions:</h6>
+                        <a class="collapse-item active" href="#">View Suppliers</a>
+                        <div class="collapse-divider"></div>
+                    </div>
+                </div>
             </li>
-            <!-- Nav Item - Tables -->
+            <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-undo"></i>
-                    <span>Add Return Stock</span></a>
-            </li>
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-cube"></i>
+                    <span>Stock</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Stock Functions:</h6>
+                        <a class="collapse-item" href="./mngr_add_stock.html">Add Stocks</a>
+                        <a class="collapse-item" href="./mngr_stocks.html">View/Update Stocks</a>
+                        <a class="collapse-item" href="./mngr_retrn_stock.html">Return Stocks</a>
+                    </div>
+                </div>
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -90,7 +104,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Stock Manager</span>
                                 <img class="img-profile rounded-circle"
                                     src="./img/user.svg">
                             </a>
@@ -150,10 +164,10 @@
                                                     <div class="col-xl-2 col-lg-2">
                                                         ID
                                                     </div>
-                                                    <div class="col-xl-2 col-lg-2">
+                                                    <div class="col-xl-3 col-lg-3">
                                                         Company Name
                                                     </div>
-                                                    <div class="col-xl-2 col-lg-2">
+                                                    <div class="col-xl-3 col-lg-3">
                                                         Address
                                                     </div>
                                                     <div class="col-xl-2 col-lg-2">
@@ -162,8 +176,6 @@
                                                     <div class="col-xl-2 col-lg-2">
                                                         E-mail
                                                     </div>
-                                                    <div class="col-xl-2 col-lg-2">
-                                                    </div>
                                                 </div>
                                               </li>
                                           <li class="list-group-item">
@@ -171,10 +183,10 @@
                                                 <div class="col-xl-2 col-lg-2">
                                                     SUP0001
                                                 </div>
-                                                <div class="col-xl-2 col-lg-2">
+                                                <div class="col-xl-3 col-lg-3">
                                                     Genext (Pvt) Ltd.
                                                 </div>
-                                                <div class="col-xl-2 col-lg-2">
+                                                <div class="col-xl-3 col-lg-3">
                                                     Colombo 07.
                                                 </div>
                                                 <div class="col-xl-2 col-lg-2">
@@ -183,97 +195,6 @@
                                                 <div class="col-xl-2 col-lg-2">
                                                     contact@genext.lk
                                                 </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    <button type="button" class="btn btn-circle btn-primary btn-sm" data-toggle="modal" data-target="#edit_supplier"><i class="fas fa-edit"></i></button>
-                                                    <button type="button" class="btn btn-circle btn-danger btn-sm" data-toggle="modal" data-target="#delete_confirm"><i class="fas fa-trash"></i></button>
-                                                </div>
-                                                <div class="modal" id="edit_supplier">
-                                                    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-                                                      <div class="modal-content">                                      
-                                                            <!-- Modal body -->
-                                                            <div class="modal-body">
-                                                                           <!-- Nested Row within Card Body -->
-                                                                            <div class="row">
-                                                                                
-                                                                                <div class="col-lg-12">
-                                                                                    <div class="p-5">
-                                                                                        <div class="text-center">
-                                                                                            <h1 class="h4 text-gray-900 mb-4">Modify Supplier Details</h1>
-                                                                                        </div>
-                                                                                        <form class="user">
-                                                                                            <div class="form-group">
-                                                                                                <input type="text" class="form-control form-control-user" id="comname" placeholder="Company Name" name="companyName">
-                                                                                            </div>
-                                                                                            <div class="form-group">
-                                                                                                <input type="text" class="form-control form-control-user" id="address" placeholder="Address" name="address">
-                                                                                            </div>
-                                                                                            <div class="form-group row">
-                                                                                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                                                                                    <input type="text" class="form-control form-control-user" id="tp" placeholder="Telephone" name="tp">  
-                                                                                                </div>
-                                                                                                <div class="col-sm-6">
-                                                                                                    <input type="text" class="form-control form-control-user" id="email" placeholder="E-mail" name="email">
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="form-group row">
-                                                                                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                                                                                    <button type="button" class="btn btn-primary btn-user btn-block mb-3" onclick="loadDoc()">
-                                                                                                        <i class="fas fa-file-import fa-fw"></i> Submit<span id="save-btn-spinner" class="spinner-border-sm"></span>
-                                                                                                    </button>
-                                                                                                </div>
-                                                                                                <div class="col-sm-6">
-                                                                                                    <button type="reset" class="btn btn-danger btn-user btn-block mb-3" data-dismiss="modal">
-                                                                                                        <i class="fas fa-backspace fa-fw"></i> Close
-                                                                                                    </button>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div id="demo"></div>
-                                                                                        </form>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>       
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="modal" id="delete_confirm">
-                                                    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-                                                      <div class="modal-content">                                      
-                                                            <!-- Modal body -->
-                                                            <div class="modal-body">
-                                                                <!-- Nested Row within Card Body -->
-                                                                <div class="row">
-                                                                                
-                                                                    <div class="col-lg-12">
-                                                                        <div class="p-5">
-                                                                            <div class="text-center">
-                                                                                <h1 class="h4 text-gray-900 mb-4">Are you sure?</h1>
-                                                                                <p>You are about to permanantly delete a record..!</p>
-                                                                            </div>
-                                                                            <form class="user">
-                                                                                
-                                                                               
-                                                                                
-                                                                                <div class="form-group row">
-                                                                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                                                                        <button type="button" class="btn btn-secondary btn-user btn-block mb-3" data-dismiss="modal">
-                                                                                            <i class="fas fa-file-import fa-fw"></i> Cancel <span id="save-btn-spinner" class="spinner-border-sm"></span>
-                                                                                        </button>
-                                                                                    </div>
-                                                                                    <div class="col-sm-6">
-                                                                                        <button type="reset" class="btn btn-danger btn-user btn-block mb-3">
-                                                                                            <i class="fas fa-backspace fa-fw"></i> Delete
-                                                                                        </button>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </form>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>   
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             </div>
                                           </li>
                                           <li class="list-group-item">
@@ -281,10 +202,10 @@
                                                 <div class="col-xl-2 col-lg-2">
                                                     SUP0002
                                                 </div>
-                                                <div class="col-xl-2 col-lg-2">
+                                                <div class="col-xl-3 col-lg-3">
                                                     Singer Sri Lanka
                                                 </div>
-                                                <div class="col-xl-2 col-lg-2">
+                                                <div class="col-xl-3 col-lg-3">
                                                     No 112, Colombo 05.
                                                 </div>
                                                 <div class="col-xl-2 col-lg-2">
@@ -293,10 +214,7 @@
                                                 <div class="col-xl-2 col-lg-2">
                                                     contact@singer.lk
                                                 </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    <button type="button" class="btn btn-circle btn-primary btn-sm"><i class="fas fa-edit"></i></button>
-                                                    <button type="button" class="btn btn-circle btn-danger btn-sm"><i class="fas fa-trash"></i></button>
-                                                </div>
+                                                
                                             </div>
                                           </li>
                                           <li class="list-group-item">
@@ -304,10 +222,10 @@
                                                 <div class="col-xl-2 col-lg-2">
                                                     SUP0003
                                                 </div>
-                                                <div class="col-xl-2 col-lg-2">
+                                                <div class="col-xl-3 col-lg-3">
                                                     John Keells Holdings
                                                 </div>
-                                                <div class="col-xl-2 col-lg-2">
+                                                <div class="col-xl-3 col-lg-3">
                                                     No.117, Colombo 02.
                                                 </div>
                                                 <div class="col-xl-2 col-lg-2">
@@ -316,10 +234,7 @@
                                                 <div class="col-xl-2 col-lg-2">
                                                     contact@keells.lk
                                                 </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    <button type="button" class="btn btn-circle btn-primary btn-sm"><i class="fas fa-edit"></i></button>
-                                                    <button type="button" class="btn btn-circle btn-danger btn-sm"><i class="fas fa-trash"></i></button>
-                                                </div>
+                                                
                                             </div>
                                           </li>
                                           <li class="list-group-item">
@@ -327,10 +242,10 @@
                                                 <div class="col-xl-2 col-lg-2">
                                                     SUP0004
                                                 </div>
-                                                <div class="col-xl-2 col-lg-2">
+                                                <div class="col-xl-3 col-lg-3">
                                                     iShop.LK
                                                 </div>
-                                                <div class="col-xl-2 col-lg-2">
+                                                <div class="col-xl-3 col-lg-3">
                                                     Galle Rd., Colombo 04.
                                                 </div>
                                                 <div class="col-xl-2 col-lg-2">
@@ -339,10 +254,7 @@
                                                 <div class="col-xl-2 col-lg-2">
                                                     contact@ishop.lk
                                                 </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    <button type="button" class="btn btn-circle btn-primary btn-sm"><i class="fas fa-edit"></i></button>
-                                                    <button type="button" class="btn btn-circle btn-danger btn-sm"><i class="fas fa-trash"></i></button>
-                                                </div>
+                                                
                                             </div>
                                           </li>
                                           <li class="list-group-item">
@@ -350,10 +262,10 @@
                                                 <div class="col-xl-2 col-lg-2">
                                                     SUP0005
                                                 </div>
-                                                <div class="col-xl-2 col-lg-2">
+                                                <div class="col-xl-3 col-lg-3">
                                                     Singhagiri (Pvt) Ltd.
                                                 </div>
-                                                <div class="col-xl-2 col-lg-2">
+                                                <div class="col-xl-3 col-lg-3">
                                                     No.515, Colombo 10.
                                                 </div>
                                                 <div class="col-xl-2 col-lg-2">
@@ -362,10 +274,7 @@
                                                 <div class="col-xl-2 col-lg-2">
                                                     websales@singhagiri.lk
                                                 </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    <button type="button" class="btn btn-circle btn-primary btn-sm"><i class="fas fa-edit"></i></button>
-                                                    <button type="button" class="btn btn-circle btn-danger btn-sm"><i class="fas fa-trash"></i></button>
-                                                </div>
+                                                
                                             </div>
                                           </li>
                                         </ul>
