@@ -35,8 +35,8 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Stocks Details</span></a>
+                    <i class="fas fa-fw fa-truck"></i>
+                    <span>View Stocks</span></a>
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -44,23 +44,58 @@
             <div class="sidebar-heading">
                 Functions
             </div>
-            <!-- Nav Item - Charts -->
+            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="far fa-fw fa-plus-square"></i>
-                    <span>Add Stock</span></a>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-truck"></i>
+                    <span>Suppliers</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Supplier Functions:</h6>
+                        <a class="collapse-item" href="./admin_add_supplier.html">Add Suppliers</a>
+                        <a class="collapse-item" href="./admin_suppliers.html">View/Update Suppliers</a>
+                        <div class="collapse-divider"></div>
+                    </div>
+                </div>
             </li>
-            <!-- Nav Item - Tables -->
+            <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-undo"></i>
-                    <span>Add Return Stock</span></a>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-cube"></i>
+                    <span>Stock</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Stock Functions:</h6>
+                        <a class="collapse-item active" href="#">View Stock</a>
+                    </div>
+                </div>
             </li>
-            <!-- Nav Item - Charts -->
+            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Manager Accounts</h6>
+                        <a class="collapse-item" href="./admin_register.html">Create Account</a>
+                        <a class="collapse-item" href="./admin_manage_accounts.html">Manage Accounts</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="./admin_dash.html"
+                    aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Dashboard</span>
+                </a>
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -90,7 +125,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
                                 <img class="img-profile rounded-circle"
                                     src="./img/user.svg">
                             </a>
@@ -165,10 +200,10 @@
                                                     <div class="col-xl-1 col-lg-1">
                                                         ID
                                                     </div>
-                                                    <div class="col-xl-2 col-lg-2">
+                                                    <div class="col-xl-3 col-lg-3">
                                                         Item Name
                                                     </div>
-                                                    <div class="col-xl-1 col-lg-1">
+                                                    <div class="col-xl-2 col-lg-2">
                                                         Brand Name
                                                     </div>
                                                     <div class="col-xl-2 col-lg-2">
@@ -183,8 +218,6 @@
                                                     <div class="col-xl-1 col-lg-1">
                                                         Quantity
                                                     </div>
-                                                    <div class="col-xl-2 col-lg-2">
-                                                    </div>
                                                 </div>
                                             </li>
                                             <li class="list-group-item">
@@ -192,10 +225,10 @@
                                                     <div class="col-xl-1 col-lg-1">
                                                         IT0001
                                                     </div>
-                                                    <div class="col-xl-2 col-lg-2">
+                                                    <div class="col-xl-3 col-lg-3">
                                                         Apple iPhone 12 Pro Max
                                                     </div>
-                                                    <div class="col-xl-1 col-lg-1">
+                                                    <div class="col-xl-2 col-lg-2">
                                                         Apple
                                                     </div>
                                                     <div class="col-xl-2 col-lg-2">
@@ -210,122 +243,6 @@
                                                     <div class="col-xl-1 col-lg-1">
                                                         6
                                                     </div>
-                                                    <div class="col-xl-2 col-lg-2">
-                                                        <button type="button" class="btn btn-circle btn-primary btn-sm" data-toggle="modal" data-target="#edit_stock"><i class="fas fa-edit"></i></button>
-                                                        <button type="button" class="btn btn-circle btn-danger btn-sm" data-toggle="modal" data-target="#delete_confirm"><i class="fas fa-trash"></i></button>
-
-                                                        <!-- The Modal -->
-                                                        <div class="modal" id="edit_stock">
-                                                            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-                                                              <div class="modal-content">                                      
-                                                                    <!-- Modal body -->
-                                                                    <div class="modal-body">
-                                                                                   <!-- Nested Row within Card Body -->
-                                                                                    <div class="row">
-                                                                                        
-                                                                                        <div class="col-lg-12">
-                                                                                            <div class="p-5">
-                                                                                                <div class="text-center">
-                                                                                                    <h1 class="h4 text-gray-900 mb-4">Modify Stock Details</h1>
-                                                                                                </div>
-                                                                                                <form class="user">
-                                                                                                    <div class="form-group">
-                                                                                                        <input type="text" class="form-control form-control-user" id="iname" placeholder="Item Name" name="itemName">
-                                                                                                    </div>
-                                                                                                    <div class="form-group">
-                                                                                                        <input type="text" class="form-control form-control-user" id="bname" placeholder="Brand Name" name="brandName">
-                                                                                                    </div>
-                                                                                                    <div class="form-group row">
-                                                                                                        <div class="col-sm-6 mb-3 mb-sm-0">
-                                                                                                              <select class="form-control form-control-user-dropdown" name="supName" id="supName">
-                                                                                                                <option value="">Company (Select One)</option>
-                                                                                                                <option value="genext">Genext (Pvt) Ltd.</option>
-                                                                                                                <option value="singer">Singer Sri Lanka</option>
-                                                                                                                <option value="keels">John Keells Holdings</option>
-                                                                                                                <option value="ishop">iShop.LK</option>
-                                                                                                                <option value="sinhagiri">Singhagiri (Pvt) Ltd. </option>
-                                                                                                            </select>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-6">
-                                                                                                            <select class="form-control form-control-user-dropdown" name="supName" id="supName">
-                                                                                                                <option value="">Man. Year (Select One)</option>
-                                                                                                                <option value="2017">2017</option>
-                                                                                                                <option value="2018">2018</option>
-                                                                                                                <option value="2019">2019</option>
-                                                                                                                <option value="2020">2020</option>
-                                                                                                                <option value="2021">2021</option>
-                                                                                                              </select>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <div class="form-group row">
-                                                                                                        <div class="col-sm-6 mb-3 mb-sm-0">
-                                                                                                            <input type="text" class="form-control form-control-user" id="bname" placeholder="Whole Sale Price" name="brandName">  
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-6">
-                                                                                                            <input type="text" class="form-control form-control-user" id="quantity" placeholder="Quantity" name="quantity">
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <div class="form-group row">
-                                                                                                        <div class="col-sm-6 mb-3 mb-sm-0">
-                                                                                                            <button type="button" class="btn btn-primary btn-user btn-block mb-3" onclick="loadDoc()">
-                                                                                                                <i class="fas fa-file-import fa-fw"></i> Submit New Stock <span id="save-btn-spinner" class="spinner-border-sm"></span>
-                                                                                                            </button>
-                                                                                                        </div>
-                                                                                                        <div class="col-sm-6">
-                                                                                                            <button type="reset" class="btn btn-danger btn-user btn-block mb-3" data-dismiss="modal">
-                                                                                                                <i class="fas fa-backspace fa-fw"></i> Close
-                                                                                                            </button>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <div id="demo"></div>
-                                                                                                </form>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>       
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="modal" id="delete_confirm">
-                                                            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-                                                              <div class="modal-content">                                      
-                                                                    <!-- Modal body -->
-                                                                    <div class="modal-body">
-                                                                        <!-- Nested Row within Card Body -->
-                                                                        <div class="row">
-                                                                                        
-                                                                            <div class="col-lg-12">
-                                                                                <div class="p-5">
-                                                                                    <div class="text-center">
-                                                                                        <h1 class="h4 text-gray-900 mb-4">Are you sure?</h1>
-                                                                                        <p>You are about to permanantly delete a record..!</p>
-                                                                                    </div>
-                                                                                    <form class="user">
-                                                                                        
-                                                                                       
-                                                                                        
-                                                                                        <div class="form-group row">
-                                                                                            <div class="col-sm-6 mb-3 mb-sm-0">
-                                                                                                <button type="button" class="btn btn-secondary btn-user btn-block mb-3" data-dismiss="modal">
-                                                                                                    <i class="fas fa-file-import fa-fw"></i> Cancel <span id="save-btn-spinner" class="spinner-border-sm"></span>
-                                                                                                </button>
-                                                                                            </div>
-                                                                                            <div class="col-sm-6">
-                                                                                                <button type="reset" class="btn btn-danger btn-user btn-block mb-3">
-                                                                                                    <i class="fas fa-backspace fa-fw"></i> Delete
-                                                                                                </button>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </form>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>   
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
                                                 </div>
                                             </li>
                                             <li class="list-group-item">
@@ -333,10 +250,10 @@
                                                     <div class="col-xl-1 col-lg-1">
                                                         IT0001
                                                     </div>
-                                                    <div class="col-xl-2 col-lg-2">
+                                                    <div class="col-xl-3 col-lg-3">
                                                         Apple iPhone 12 Pro Max
                                                     </div>
-                                                    <div class="col-xl-1 col-lg-1">
+                                                    <div class="col-xl-2 col-lg-2">
                                                         Apple
                                                     </div>
                                                     <div class="col-xl-2 col-lg-2">
@@ -351,10 +268,6 @@
                                                     <div class="col-xl-1 col-lg-1">
                                                         6
                                                     </div>
-                                                    <div class="col-xl-2 col-lg-2">
-                                                        <button type="button" class="btn btn-circle btn-primary btn-sm"><i class="fas fa-edit"></i></button>
-                                                        <button type="button" class="btn btn-circle btn-danger btn-sm"><i class="fas fa-trash"></i></button>
-                                                    </div>
                                                 </div>
                                             </li>
                                             <li class="list-group-item">
@@ -362,10 +275,10 @@
                                                     <div class="col-xl-1 col-lg-1">
                                                         IT0001
                                                     </div>
-                                                    <div class="col-xl-2 col-lg-2">
+                                                    <div class="col-xl-3 col-lg-3">
                                                         Apple iPhone 12 Pro Max
                                                     </div>
-                                                    <div class="col-xl-1 col-lg-1">
+                                                    <div class="col-xl-2 col-lg-2">
                                                         Apple
                                                     </div>
                                                     <div class="col-xl-2 col-lg-2">
@@ -380,10 +293,6 @@
                                                     <div class="col-xl-1 col-lg-1">
                                                         6
                                                     </div>
-                                                    <div class="col-xl-2 col-lg-2">
-                                                        <button type="button" class="btn btn-circle btn-primary btn-sm"><i class="fas fa-edit"></i></button>
-                                                        <button type="button" class="btn btn-circle btn-danger btn-sm"><i class="fas fa-trash"></i></button>
-                                                    </div>
                                                 </div>
                                             </li>
                                             <li class="list-group-item">
@@ -391,10 +300,10 @@
                                                     <div class="col-xl-1 col-lg-1">
                                                         IT0001
                                                     </div>
-                                                    <div class="col-xl-2 col-lg-2">
+                                                    <div class="col-xl-3 col-lg-3">
                                                         Apple iPhone 12 Pro Max
                                                     </div>
-                                                    <div class="col-xl-1 col-lg-1">
+                                                    <div class="col-xl-2 col-lg-2">
                                                         Apple
                                                     </div>
                                                     <div class="col-xl-2 col-lg-2">
@@ -409,10 +318,6 @@
                                                     <div class="col-xl-1 col-lg-1">
                                                         6
                                                     </div>
-                                                    <div class="col-xl-2 col-lg-2">
-                                                        <button type="button" class="btn btn-circle btn-primary btn-sm"><i class="fas fa-edit"></i></button>
-                                                        <button type="button" class="btn btn-circle btn-danger btn-sm"><i class="fas fa-trash"></i></button>
-                                                    </div>
                                                 </div>
                                             </li>
                                             <li class="list-group-item">
@@ -420,10 +325,10 @@
                                                     <div class="col-xl-1 col-lg-1">
                                                         IT0001
                                                     </div>
-                                                    <div class="col-xl-2 col-lg-2">
+                                                    <div class="col-xl-3 col-lg-3">
                                                         Apple iPhone 12 Pro Max
                                                     </div>
-                                                    <div class="col-xl-1 col-lg-1">
+                                                    <div class="col-xl-2 col-lg-2">
                                                         Apple
                                                     </div>
                                                     <div class="col-xl-2 col-lg-2">
@@ -437,10 +342,6 @@
                                                     </div>
                                                     <div class="col-xl-1 col-lg-1">
                                                         6
-                                                    </div>
-                                                    <div class="col-xl-2 col-lg-2">
-                                                        <button type="button" class="btn btn-circle btn-primary btn-sm"><i class="fas fa-edit"></i></button>
-                                                        <button type="button" class="btn btn-circle btn-danger btn-sm"><i class="fas fa-trash"></i></button>
                                                     </div>
                                                 </div>
                                             </li>
