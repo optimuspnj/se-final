@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Manage Stocks</title>
+
+    <!-- Custom fonts-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles-->
+    <link href="css/custom-bootstrap.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon">
+                    <img class="img-fluid mt-3" src="./img/logo.png" alt="Chinthana GSM">
+                </div>
+            </a>
+            <!-- Divider -->
+            <hr class="sidebar-divider mt-4 mb-0">
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Stocks Details</span></a>
+            </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Functions
+            </div>
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="charts.html">
+                    <i class="far fa-fw fa-plus-square"></i>
+                    <span>Add Stock</span></a>
+            </li>
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="tables.html">
+                    <i class="fas fa-fw fa-undo"></i>
+                    <span>Add Return Stock</span></a>
+            </li>
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+            <!-- Sidebar Message -->
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+            <!-- Main Content -->
+            <div id="content">
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <img class="img-profile rounded-circle"
+                                    src="./img/user.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Settings
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Activity Log
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Stock Details</h1>
+                    </div>
+
+                        
+                    <div class="row">
+
+                        <!-- Area Chart -->
+                        <div class="col-xl-12 col-lg-12">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Stocks Table</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="container mb-2">
+                                        <form class="form-inline my-2 my-md-0">                      
+                                            <div class="input-group">                           
+                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                
+                                                aria-label="Search" aria-describedby="basic-addon2">                        
+                                                <div class="input-group-append">                           
+                                                <button class="btn btn-success" type="button">                                  
+                                                    <i class="fas fa-search fa-sm"></i>                            
+                                                    </button>                          
+                                                </div>                      
+                                            </div>                  
+                                        </form>
+                                    </div>
+                                    
+                                    <div class="container">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item list-group-item-dark">
+                                                <div class="row">
+                                                    <div class="col-xl-1 col-lg-1">
+                                                        ID
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-2">
+                                                        Item Name
+                                                    </div>
+                                                    <div class="col-xl-1 col-lg-1">
+                                                        Brand Name
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-2">
+                                                        Supplier
+                                                    </div>
+                                                    <div class="col-xl-1 col-lg-1">
+                                                        Manu. Year
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-2">
+                                                        W/S Price
+                                                    </div>
+                                                    <div class="col-xl-1 col-lg-1">
+                                                        Quantity
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-2">
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <div class="row">
+                                                    <div class="col-xl-1 col-lg-1">
+                                                        IT0001
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-2">
+                                                        Apple iPhone 12 Pro Max
+                                                    </div>
+                                                    <div class="col-xl-1 col-lg-1">
+                                                        Apple
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-2">
+                                                        iShop.LK
+                                                    </div>
+                                                    <div class="col-xl-1 col-lg-1">
+                                                        2020
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-2">
+                                                        264,000.00
+                                                    </div>
+                                                    <div class="col-xl-1 col-lg-1">
+                                                        6
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-2">
+                                                        <button type="button" class="btn btn-circle btn-primary btn-sm" data-toggle="modal" data-target="#edit_stock"><i class="fas fa-edit"></i></button>
+                                                        <button type="button" class="btn btn-circle btn-danger btn-sm" data-toggle="modal" data-target="#delete_confirm"><i class="fas fa-trash"></i></button>
+
+                                                        <!-- The Modal -->
+                                                        <div class="modal" id="edit_stock">
+                                                            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+                                                              <div class="modal-content">                                      
+                                                                    <!-- Modal body -->
+                                                                    <div class="modal-body">
+                                                                                   <!-- Nested Row within Card Body -->
+                                                                                    <div class="row">
+                                                                                        
+                                                                                        <div class="col-lg-12">
+                                                                                            <div class="p-5">
+                                                                                                <div class="text-center">
+                                                                                                    <h1 class="h4 text-gray-900 mb-4">Modify Stock Details</h1>
+                                                                                                </div>
+                                                                                                <form class="user">
+                                                                                                    <div class="form-group">
+                                                                                                        <input type="text" class="form-control form-control-user" id="iname" placeholder="Item Name" name="itemName">
+                                                                                                    </div>
+                                                                                                    <div class="form-group">
+                                                                                                        <input type="text" class="form-control form-control-user" id="bname" placeholder="Brand Name" name="brandName">
+                                                                                                    </div>
+                                                                                                    <div class="form-group row">
+                                                                                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                                                                                              <select class="form-control form-control-user-dropdown" name="supName" id="supName">
+                                                                                                                <option value="">Company (Select One)</option>
+                                                                                                                <option value="genext">Genext (Pvt) Ltd.</option>
+                                                                                                                <option value="singer">Singer Sri Lanka</option>
+                                                                                                                <option value="keels">John Keells Holdings</option>
+                                                                                                                <option value="ishop">iShop.LK</option>
+                                                                                                                <option value="sinhagiri">Singhagiri (Pvt) Ltd. </option>
+                                                                                                            </select>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-6">
+                                                                                                            <select class="form-control form-control-user-dropdown" name="supName" id="supName">
+                                                                                                                <option value="">Man. Year (Select One)</option>
+                                                                                                                <option value="2017">2017</option>
+                                                                                                                <option value="2018">2018</option>
+                                                                                                                <option value="2019">2019</option>
+                                                                                                                <option value="2020">2020</option>
+                                                                                                                <option value="2021">2021</option>
+                                                                                                              </select>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="form-group row">
+                                                                                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                                                                                            <input type="text" class="form-control form-control-user" id="bname" placeholder="Whole Sale Price" name="brandName">  
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-6">
+                                                                                                            <input type="text" class="form-control form-control-user" id="quantity" placeholder="Quantity" name="quantity">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="form-group row">
+                                                                                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                                                                                            <button type="button" class="btn btn-primary btn-user btn-block mb-3" onclick="loadDoc()">
+                                                                                                                <i class="fas fa-file-import fa-fw"></i> Submit New Stock <span id="save-btn-spinner" class="spinner-border-sm"></span>
+                                                                                                            </button>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-6">
+                                                                                                            <button type="reset" class="btn btn-danger btn-user btn-block mb-3" data-dismiss="modal">
+                                                                                                                <i class="fas fa-backspace fa-fw"></i> Close
+                                                                                                            </button>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div id="demo"></div>
+                                                                                                </form>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>       
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="modal" id="delete_confirm">
+                                                            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+                                                              <div class="modal-content">                                      
+                                                                    <!-- Modal body -->
+                                                                    <div class="modal-body">
+                                                                        <!-- Nested Row within Card Body -->
+                                                                        <div class="row">
+                                                                                        
+                                                                            <div class="col-lg-12">
+                                                                                <div class="p-5">
+                                                                                    <div class="text-center">
+                                                                                        <h1 class="h4 text-gray-900 mb-4">Are you sure?</h1>
+                                                                                        <p>You are about to permanantly delete a record..!</p>
+                                                                                    </div>
+                                                                                    <form class="user">
+                                                                                        
+                                                                                       
+                                                                                        
+                                                                                        <div class="form-group row">
+                                                                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                                                                <button type="button" class="btn btn-secondary btn-user btn-block mb-3" data-dismiss="modal">
+                                                                                                    <i class="fas fa-file-import fa-fw"></i> Cancel <span id="save-btn-spinner" class="spinner-border-sm"></span>
+                                                                                                </button>
+                                                                                            </div>
+                                                                                            <div class="col-sm-6">
+                                                                                                <button type="reset" class="btn btn-danger btn-user btn-block mb-3">
+                                                                                                    <i class="fas fa-backspace fa-fw"></i> Delete
+                                                                                                </button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>   
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <div class="row">
+                                                    <div class="col-xl-1 col-lg-1">
+                                                        IT0001
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-2">
+                                                        Apple iPhone 12 Pro Max
+                                                    </div>
+                                                    <div class="col-xl-1 col-lg-1">
+                                                        Apple
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-2">
+                                                        iShop.LK
+                                                    </div>
+                                                    <div class="col-xl-1 col-lg-1">
+                                                        2020
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-2">
+                                                        264,000.00
+                                                    </div>
+                                                    <div class="col-xl-1 col-lg-1">
+                                                        6
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-2">
+                                                        <button type="button" class="btn btn-circle btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                                                        <button type="button" class="btn btn-circle btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <div class="row">
+                                                    <div class="col-xl-1 col-lg-1">
+                                                        IT0001
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-2">
+                                                        Apple iPhone 12 Pro Max
+                                                    </div>
+                                                    <div class="col-xl-1 col-lg-1">
+                                                        Apple
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-2">
+                                                        iShop.LK
+                                                    </div>
+                                                    <div class="col-xl-1 col-lg-1">
+                                                        2020
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-2">
+                                                        264,000.00
+                                                    </div>
+                                                    <div class="col-xl-1 col-lg-1">
+                                                        6
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-2">
+                                                        <button type="button" class="btn btn-circle btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                                                        <button type="button" class="btn btn-circle btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <div class="row">
+                                                    <div class="col-xl-1 col-lg-1">
+                                                        IT0001
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-2">
+                                                        Apple iPhone 12 Pro Max
+                                                    </div>
+                                                    <div class="col-xl-1 col-lg-1">
+                                                        Apple
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-2">
+                                                        iShop.LK
+                                                    </div>
+                                                    <div class="col-xl-1 col-lg-1">
+                                                        2020
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-2">
+                                                        264,000.00
+                                                    </div>
+                                                    <div class="col-xl-1 col-lg-1">
+                                                        6
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-2">
+                                                        <button type="button" class="btn btn-circle btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                                                        <button type="button" class="btn btn-circle btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <div class="row">
+                                                    <div class="col-xl-1 col-lg-1">
+                                                        IT0001
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-2">
+                                                        Apple iPhone 12 Pro Max
+                                                    </div>
+                                                    <div class="col-xl-1 col-lg-1">
+                                                        Apple
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-2">
+                                                        iShop.LK
+                                                    </div>
+                                                    <div class="col-xl-1 col-lg-1">
+                                                        2020
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-2">
+                                                        264,000.00
+                                                    </div>
+                                                    <div class="col-xl-1 col-lg-1">
+                                                        6
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-2">
+                                                        <button type="button" class="btn btn-circle btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                                                        <button type="button" class="btn btn-circle btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="./vendor/jquery/jquery.min.js"></script>
+    <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="./vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="./js/custom-js.js"></script>
+</body>
+
+</html>
