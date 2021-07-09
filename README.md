@@ -13,3 +13,5 @@ TG/2018/395 - D.R. Vidanapathirana
 
 git config --global user.email "youremail@yourdomain.com"
 git config --global user.name "Your Name"
+
+Adithya made a change.
