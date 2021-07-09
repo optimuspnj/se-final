@@ -200,10 +200,15 @@
                                                     <div class="col-xl-1 col-lg-1">
                                                     </div>
                                                 </div>
-                                              </li>
-                                          <div id="listItem"></div>
-                                          <div class="d-none" id="selectedToDel"></div>
+                                            </li>
+                                            <div id="listItem"></div>
                                         </ul>
+                                        <div class="row">
+                                            <div class="col-xl-12 col-lg-12">
+                                                <div id="pageSpinner" class="d-none">Loading...</div>
+                                            </div>
+                                        </div>
+                                        <div class="d-none" id="selectedToDel"></div>
                                       </div>
                                 </div>
                             </div>
@@ -258,24 +263,33 @@
     <script src="./js/custom-js.js"></script>
 
     <script>
-        $(document).ready(function(){
+        function reloadSupList () {
+            $("#pageSpinner").removeClass("d-none");
             $.ajax({
                 type: 'POST',
                 url: 'https://softeng-final.000webhostapp.com/admin_load_suppliers.php',
                 success: function(response) {
                     $('#listItem').html(response);
+                    $("#pageSpinner").addClass("d-none");
                 }
             });
+        }
+
+        $(document).ready(function(){
+            reloadSupList ();
         });
 
         function callDelete() {
             var val1 = document.getElementById('selectedToDel').innerHTML;
+            $("#pageSpinner").removeClass("d-none");
             $.ajax({
                 type: 'POST',
                 url: 'https://softeng-final.000webhostapp.com/admin_delete_suppliers.php',
                 data: { delSupId: val1 },
                 success: function(response) {
-                    $('#demo').html(response);
+                    //$('#demo').html(response);
+                    reloadSupList ();
+                    $("#pageSpinner").addClass("d-none");
                 }
             });
         }
