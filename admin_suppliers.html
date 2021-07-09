@@ -202,6 +202,7 @@
                                                 </div>
                                               </li>
                                           <div id="listItem"></div>
+                                          <div class="d-none" id="selectedToDel"></div>
                                         </ul>
                                       </div>
                                 </div>
@@ -266,6 +267,18 @@
                 }
             });
         });
+
+        function callDelete() {
+            var val1 = document.getElementById('selectedToDel').innerHTML;
+            $.ajax({
+                type: 'POST',
+                url: 'https://softeng-final.000webhostapp.com/admin_delete_suppliers.php',
+                data: { delSupId: val1 },
+                success: function(response) {
+                    $('#demo').html(response);
+                }
+            });
+        }
     </script>
 </body>
 
