@@ -181,13 +181,12 @@
                                     <div class="container mb-2">
                                         <form class="form-inline my-2 my-md-0">                      
                                             <div class="input-group">                           
-                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                
+                                                <input type="text" class="form-control bg-light border-0 small" id="serachBox" placeholder="Search for..."
                                                 aria-label="Search" aria-describedby="basic-addon2">                        
                                                 <div class="input-group-append">                           
-                                                <button class="btn btn-success" type="button">                                  
+                                                <button class="btn btn-success" type="button" data-toggle="modal" data-target="#searchResults" onclick="searchStock()">                                  
                                                     <i class="fas fa-search fa-sm"></i>                            
-                                                    </button>                          
+                                                    </button>                    
                                                 </div>                      
                                             </div>                  
                                         </form>
@@ -213,7 +212,7 @@
                                                         Manu. Year
                                                     </div>
                                                     <div class="col-xl-2 col-lg-2">
-                                                        W/S Price
+                                                        W/S Price (Rs.)
                                                     </div>
                                                     <div class="col-xl-1 col-lg-1">
                                                         Quantity
@@ -229,6 +228,67 @@
                                                 <div id="pageSpinner" class="d-none">Loading...</div>
                                             </div>
                                         </div>
+                                    <!-- The Modal -->
+                                    <div class="modal" id="searchResults">
+                                        <div class="modal-dialog modal-xl">
+                                            <div class="modal-content">
+      
+                                                <!-- Modal Header -->
+                                                <div class="modal-header">
+                                                    <h3 class="modal-title">Search Results...</h3>
+                                                    <button type="button" class="close" data-dismiss="modal">×</button>
+                                                </div>
+        
+                                                <!-- Modal body -->
+                                                <div class="modal-body">
+                                                    <div class="container">
+                                                        <ul class="list-group list-group-flush">
+                                                            <li class="list-group-item list-group-item-dark">
+                                                                <div class="row">
+                                                                    <div class="col-xl-1 col-lg-1">
+                                                                        ID
+                                                                    </div>
+                                                                    <div class="col-xl-3 col-lg-3">
+                                                                        Item Name
+                                                                    </div>
+                                                                    <div class="col-xl-2 col-lg-2">
+                                                                        Brand Name
+                                                                    </div>
+                                                                    <div class="col-xl-2 col-lg-2">
+                                                                        Supplier
+                                                                    </div>
+                                                                    <div class="col-xl-1 col-lg-1">
+                                                                        Manu. Year
+                                                                    </div>
+                                                                    <div class="col-xl-2 col-lg-2">
+                                                                        W/S Price (Rs.)
+                                                                    </div>
+                                                                    <div class="col-xl-1 col-lg-1">
+                                                                        Quantity
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                
+                                                            <div id="searchResutsAppend"></div>
+                
+                                                        </ul>
+                                                        <div class="row">
+                                                            <div class="col-xl-12 col-lg-12">
+                                                                <div id="searchSpinner" class="d-none">Loading...</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+        
+                                                <!-- Modal footer -->
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                </div>
+        
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
                                     </div>
                                 </div>
                             </div>
@@ -295,6 +355,22 @@
                 }
             });
         });
+
+        function searchStock() {
+            $('#searchResutsAppend').html("");
+            var val1 = $('#serachBox').val();
+            $("#searchSpinner").removeClass("d-none");
+            $.ajax({
+                type: 'POST',
+                url: 'https://se-project-chinthanagsm.herokuapp.com/admin_search_stock.php',
+                data: { searchKey: val1 },
+                success: function(response) {
+                    $('#searchResutsAppend').html(response);
+                    $("#searchSpinner").addClass("d-none");
+                }
+            });
+        
+        }
     </script>
 
     
