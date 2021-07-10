@@ -229,7 +229,7 @@
         $("#save-btn-spinner").addClass("spinner-border");
             $.ajax({
                 type: 'POST',
-                url: 'https://se-project-chinthanagsm.herokuapp.com//register.php',
+                url: 'https://se-project-chinthanagsm.herokuapp.com/register.php',
                 data: { fname: val1, lname: val2, email: val3, uname: val4, pass: val5},
                 success: function(response) {
                     $("#save-btn-spinner").removeClass("spinner-border");

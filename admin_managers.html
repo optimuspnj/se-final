@@ -268,7 +268,7 @@
             $("#pageSpinner").removeClass("d-none");
             $.ajax({
                 type: 'POST',
-                url: 'https://se-project-chinthanagsm.herokuapp.com//admin_load_managers.php',
+                url: 'https://se-project-chinthanagsm.herokuapp.com/admin_load_managers.php',
                 success: function(response) {
                     $('#listItem').html(response);
                     $("#pageSpinner").addClass("d-none");
@@ -285,7 +285,7 @@
             $("#pageSpinner").removeClass("d-none");
             $.ajax({
                 type: 'POST',
-                url: 'https://se-project-chinthanagsm.herokuapp.com//admin_delete_managers.php',
+                url: 'https://se-project-chinthanagsm.herokuapp.com/admin_delete_managers.php',
                 data: { delManId: val1 },
                 success: function(response) {
                     //$('#demo').html(response);
@@ -304,7 +304,7 @@
             $("#pageSpinner").removeClass("d-none");
             $.ajax({
                 type: 'POST',
-                url: 'https://se-project-chinthanagsm.herokuapp.com//admin_update_managers.php',
+                url: 'https://se-project-chinthanagsm.herokuapp.com/admin_update_managers.php',
                 data: { editUserId: val1, editFname: val2, editLname: val3,  editTp: val4, editEmail: val5 },
                 success: function(response) {
                     //$('#demo').html(response);

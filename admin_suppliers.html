@@ -268,7 +268,7 @@
             $("#pageSpinner").removeClass("d-none");
             $.ajax({
                 type: 'POST',
-                url: 'https://se-project-chinthanagsm.herokuapp.com//admin_load_suppliers.php',
+                url: 'https://se-project-chinthanagsm.herokuapp.com/admin_load_suppliers.php',
                 success: function(response) {
                     $('#listItem').html(response);
                     $("#pageSpinner").addClass("d-none");
@@ -285,7 +285,7 @@
             $("#pageSpinner").removeClass("d-none");
             $.ajax({
                 type: 'POST',
-                url: 'https://se-project-chinthanagsm.herokuapp.com//admin_delete_suppliers.php',
+                url: 'https://se-project-chinthanagsm.herokuapp.com/admin_delete_suppliers.php',
                 data: { delSupId: val1 },
                 success: function(response) {
                     //$('#demo').html(response);
@@ -304,7 +304,7 @@
             $("#pageSpinner").removeClass("d-none");
             $.ajax({
                 type: 'POST',
-                url: 'https://se-project-chinthanagsm.herokuapp.com//admin_update_suppliers.php',
+                url: 'https://se-project-chinthanagsm.herokuapp.com/admin_update_suppliers.php',
                 data: { editSupId: val1, editSupName: val2, editSupAddr: val3,  editSupTp: val4, editSupEm: val5 },
                 success: function(response) {
                     //$('#demo').html(response);
