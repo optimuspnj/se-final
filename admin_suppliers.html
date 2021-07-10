@@ -209,6 +209,7 @@
                                             </div>
                                         </div>
                                         <div class="d-none" id="selectedToDel"></div>
+                                        <div class="d-none" id="selectedToEdit"></div>
                                       </div>
                                 </div>
                             </div>
@@ -286,6 +287,25 @@
                 type: 'POST',
                 url: 'https://softeng-final.000webhostapp.com/admin_delete_suppliers.php',
                 data: { delSupId: val1 },
+                success: function(response) {
+                    //$('#demo').html(response);
+                    reloadSupList ();
+                    $("#pageSpinner").addClass("d-none");
+                }
+            });
+        }
+
+        function callEdit() {
+            var val1 = document.getElementById('selectedToEdit').innerHTML;
+            var val2 = $('#comname').val();
+            var val3 = $('#supaddress').val();
+            var val4 = $('#suptp').val();
+            var val5 = $('#supemail').val();
+            $("#pageSpinner").removeClass("d-none");
+            $.ajax({
+                type: 'POST',
+                url: 'https://softeng-final.000webhostapp.com/admin_update_suppliers.php',
+                data: { editSupId: val1, editSupName: val2, editSupAddr: val3,  editSupTp: val4, editSupEm: val5 },
                 success: function(response) {
                     //$('#demo').html(response);
                     reloadSupList ();
