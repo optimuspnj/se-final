@@ -182,216 +182,34 @@
                                         <ul class="list-group list-group-flush">
                                             <li class="list-group-item list-group-item-dark">
                                                 <div class="row">
-                                                    <div class="col-xl-2 col-lg-2">
+                                                    <div class="col-xl-1 col-lg-1">
                                                         ID
                                                     </div>
                                                     <div class="col-xl-2 col-lg-2">
+                                                        User Name
+                                                    </div>
+                                                    <div class="col-xl-3 col-lg-3">
                                                         Name
                                                     </div>
                                                     <div class="col-xl-2 col-lg-2">
                                                         T.P.
                                                     </div>
-                                                    <div class="col-xl-2 col-lg-2">
-                                                        E-mail
+                                                    <div class="col-xl-3 col-lg-3">
+                                                        Email
                                                     </div>
-                                                    <div class="col-xl-2 col-lg-2">
-                                                        Password
-                                                    </div>
-                                                    <div class="col-xl-2 col-lg-2">
+                                                    <div class="col-xl-1 col-lg-1">
                                                     </div>
                                                 </div>
                                               </li>
-                                          <li class="list-group-item">
+                                              <div id="listItem"></div>
+                                            </ul>
                                             <div class="row">
-                                                <div class="col-xl-2 col-lg-2">
-                                                    MAN0001
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    Bimal
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    0774125498
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    bimal@mail.com
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    ##########
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    <button type="button" class="btn btn-circle btn-primary btn-sm" data-toggle="modal" data-target="#edit_supplier"><i class="fas fa-edit"></i></button>
-                                                    <button type="button" class="btn btn-circle btn-danger btn-sm" data-toggle="modal" data-target="#delete_confirm"><i class="fas fa-trash"></i></button>
-                                                </div>
-                                                <div class="modal" id="edit_supplier">
-                                                    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-                                                      <div class="modal-content">                                      
-                                                            <!-- Modal body -->
-                                                            <div class="modal-body">
-                                                                           <!-- Nested Row within Card Body -->
-                                                                            <div class="row">
-                                                                                
-                                                                                <div class="col-lg-12">
-                                                                                    <div class="p-5">
-                                                                                        <div class="text-center">
-                                                                                            <h1 class="h4 text-gray-900 mb-4">Reset Password?</h1>
-                                                                                            <p>You are about to reset selected manager's password. It will replace with a random password and you can copy it here.</p>
-                                                                                        </div>
-                                                                                        <form class="user">
-                                                                                           
-                                                                                            <div class="form-group row">
-                                                                                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                                                                                    <button type="button" class="btn btn-danger btn-user btn-block mb-3" onclick="loadDoc()">
-                                                                                                        <i class="fas fa-file-import fa-fw"></i> Reset<span id="save-btn-spinner" class="spinner-border-sm"></span>
-                                                                                                    </button>
-                                                                                                </div>
-                                                                                                <div class="col-sm-6">
-                                                                                                    <button type="reset" class="btn btn-secondary btn-user btn-block mb-3" data-dismiss="modal">
-                                                                                                        <i class="fas fa-backspace fa-fw"></i> Cancel
-                                                                                                    </button>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div id="demo"></div>
-                                                                                        </form>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>       
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="modal" id="delete_confirm">
-                                                    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-                                                      <div class="modal-content">                                      
-                                                            <!-- Modal body -->
-                                                            <div class="modal-body">
-                                                                <!-- Nested Row within Card Body -->
-                                                                <div class="row">
-                                                                                
-                                                                    <div class="col-lg-12">
-                                                                        <div class="p-5">
-                                                                            <div class="text-center">
-                                                                                <h1 class="h4 text-gray-900 mb-4">Are you sure?</h1>
-                                                                                <p>You are about to permanantly delete a record..!</p>
-                                                                            </div>
-                                                                            <form class="user">
-                                                                                
-                                                                               
-                                                                                
-                                                                                <div class="form-group row">
-                                                                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                                                                        <button type="button" class="btn btn-secondary btn-user btn-block mb-3" data-dismiss="modal">
-                                                                                            <i class="fas fa-file-import fa-fw"></i> Cancel <span id="save-btn-spinner" class="spinner-border-sm"></span>
-                                                                                        </button>
-                                                                                    </div>
-                                                                                    <div class="col-sm-6">
-                                                                                        <button type="reset" class="btn btn-danger btn-user btn-block mb-3">
-                                                                                            <i class="fas fa-backspace fa-fw"></i> Delete
-                                                                                        </button>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </form>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>   
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                <div class="col-xl-12 col-lg-12">
+                                                    <div id="pageSpinner" class="d-none">Loading...</div>
                                                 </div>
                                             </div>
-                                          </li>
-                                          <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col-xl-2 col-lg-2">
-                                                    MAN0002
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    Wimal
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    0785216584
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    wimal@mail.com
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    ##########
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    <button type="button" class="btn btn-circle btn-primary btn-sm"><i class="fas fa-edit"></i></button>
-                                                    <button type="button" class="btn btn-circle btn-danger btn-sm"><i class="fas fa-trash"></i></button>
-                                                </div>
-                                            </div>
-                                          </li>
-                                          <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col-xl-2 col-lg-2">
-                                                    MAN0003
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    Nimal
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    0775123654
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    nimal@mail.com
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    ##########
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    <button type="button" class="btn btn-circle btn-primary btn-sm"><i class="fas fa-edit"></i></button>
-                                                    <button type="button" class="btn btn-circle btn-danger btn-sm"><i class="fas fa-trash"></i></button>
-                                                </div>
-                                            </div>
-                                          </li>
-                                          <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col-xl-2 col-lg-2">
-                                                    MAN0004
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    Amal
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    0774132547
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    amal@mail.com
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    ##########
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    <button type="button" class="btn btn-circle btn-primary btn-sm"><i class="fas fa-edit"></i></button>
-                                                    <button type="button" class="btn btn-circle btn-danger btn-sm"><i class="fas fa-trash"></i></button>
-                                                </div>
-                                            </div>
-                                          </li>
-                                          <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col-xl-2 col-lg-2">
-                                                    MAN0005
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    Kamal
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    0715824125
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    kamal@mail.com
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    ##########
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    <button type="button" class="btn btn-circle btn-primary btn-sm"><i class="fas fa-edit"></i></button>
-                                                    <button type="button" class="btn btn-circle btn-danger btn-sm"><i class="fas fa-trash"></i></button>
-                                                </div>
-                                            </div>
-                                          </li>
-                                        </ul>
+                                            <div class="d-none" id="selectedToDel"></div>
+                                            <div class="d-none" id="selectedToEdit"></div>
                                       </div>
                                 </div>
                             </div>
@@ -444,6 +262,58 @@
 
     <!-- Custom scripts for all pages-->
     <script src="./js/custom-js.js"></script>
+
+    <script>
+        function reloadManList () {
+            $("#pageSpinner").removeClass("d-none");
+            $.ajax({
+                type: 'POST',
+                url: 'https://softeng-final.000webhostapp.com/admin_load_managers.php',
+                success: function(response) {
+                    $('#listItem').html(response);
+                    $("#pageSpinner").addClass("d-none");
+                }
+            });
+        }
+
+        $(document).ready(function(){
+            reloadManList ();
+        });
+
+        function callDelete() {
+            var val1 = document.getElementById('selectedToDel').innerHTML;
+            $("#pageSpinner").removeClass("d-none");
+            $.ajax({
+                type: 'POST',
+                url: 'https://softeng-final.000webhostapp.com/admin_delete_managers.php',
+                data: { delManId: val1 },
+                success: function(response) {
+                    //$('#demo').html(response);
+                    reloadManList ();
+                    $("#pageSpinner").addClass("d-none");
+                }
+            });
+        }
+
+        function callEdit() {
+            var val1 = document.getElementById('selectedToEdit').innerHTML;
+            var val2 = $('#manFirstName').val();
+            var val3 = $('#manLastName').val();
+            var val4 = $('#manTp').val();
+            var val5 = $('#manEmail').val();
+            $("#pageSpinner").removeClass("d-none");
+            $.ajax({
+                type: 'POST',
+                url: 'https://softeng-final.000webhostapp.com/admin_update_managers.php',
+                data: { editUserId: val1, editFname: val2, editLname: val3,  editTp: val4, editEmail: val5 },
+                success: function(response) {
+                    //$('#demo').html(response);
+                    reloadManList ();
+                    $("#pageSpinner").addClass("d-none");
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>

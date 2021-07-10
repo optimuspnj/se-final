@@ -183,17 +183,17 @@
                                                     </div>
                                                     <form class="user">
                                                         <div class="form-group">
-                                                            <input type="text" class="form-control form-control-user" id="comname" placeholder="Company Name" name="companyName">
+                                                            <input type="text" class="form-control form-control-user" id="supname" placeholder="Supplier Name" name="supname">
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="text" class="form-control form-control-user" id="address" placeholder="Address" name="address">
+                                                            <input type="text" class="form-control form-control-user" id="supaddress" placeholder="Address" name="supaddress">
                                                         </div>
                                                         <div class="form-group row">
                                                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                                                <input type="text" class="form-control form-control-user" id="tp" placeholder="Telephone" name="tp">  
+                                                                <input type="text" class="form-control form-control-user" id="suptp" placeholder="Telephone" name="suptp">  
                                                             </div>
                                                             <div class="col-sm-6">
-                                                                <input type="text" class="form-control form-control-user" id="email" placeholder="E-mail" name="email">
+                                                                <input type="text" class="form-control form-control-user" id="supemail" placeholder="E-mail" name="supemail">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -265,6 +265,25 @@
 
     <!-- Custom scripts for all pages-->
     <script src="./js/custom-js.js"></script>
+
+    <script>
+        function loadDoc() {
+        var val1 = $('#supname').val();
+        var val2 = $('#supaddress').val();
+        var val3 = $('#suptp').val();
+        var val4 = $('#supemail').val();
+        $("#save-btn-spinner").addClass("spinner-border");
+            $.ajax({
+                type: 'POST',
+                url: 'https://softeng-final.000webhostapp.com/add_supplier.php',
+                data: { supname: val1, supaddr: val2, suptp: val3, supemail: val4 },
+                success: function(response) {
+                    $("#save-btn-spinner").removeClass("spinner-border");
+                    $('#demo').html(response);
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>
