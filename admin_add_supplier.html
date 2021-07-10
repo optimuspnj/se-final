@@ -275,7 +275,7 @@
         $("#save-btn-spinner").addClass("spinner-border");
             $.ajax({
                 type: 'POST',
-                url: 'https://softeng-final.000webhostapp.com/add_supplier.php',
+                url: 'https://se-project-chinthanagsm.herokuapp.com//add_supplier.php',
                 data: { supname: val1, supaddr: val2, suptp: val3, supemail: val4 },
                 success: function(response) {
                     $("#save-btn-spinner").removeClass("spinner-border");

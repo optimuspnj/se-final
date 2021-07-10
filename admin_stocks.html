@@ -288,7 +288,7 @@
             $("#pageSpinner").removeClass("d-none");
             $.ajax({
                 type: 'POST',
-                url: 'https://softeng-final.000webhostapp.com/admin_load_stock.php',
+                url: 'https://se-project-chinthanagsm.herokuapp.com//admin_load_stock.php',
                 success: function(response) {
                     $('#listItem').html(response);
                     $("#pageSpinner").addClass("d-none");
