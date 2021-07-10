@@ -220,132 +220,15 @@
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li class="list-group-item">
-                                                <div class="row">
-                                                    <div class="col-xl-1 col-lg-1">
-                                                        IT0001
-                                                    </div>
-                                                    <div class="col-xl-3 col-lg-3">
-                                                        Apple iPhone 12 Pro Max
-                                                    </div>
-                                                    <div class="col-xl-2 col-lg-2">
-                                                        Apple
-                                                    </div>
-                                                    <div class="col-xl-2 col-lg-2">
-                                                        iShop.LK
-                                                    </div>
-                                                    <div class="col-xl-1 col-lg-1">
-                                                        2020
-                                                    </div>
-                                                    <div class="col-xl-2 col-lg-2">
-                                                        264,000.00
-                                                    </div>
-                                                    <div class="col-xl-1 col-lg-1">
-                                                        6
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <div class="row">
-                                                    <div class="col-xl-1 col-lg-1">
-                                                        IT0001
-                                                    </div>
-                                                    <div class="col-xl-3 col-lg-3">
-                                                        Apple iPhone 12 Pro Max
-                                                    </div>
-                                                    <div class="col-xl-2 col-lg-2">
-                                                        Apple
-                                                    </div>
-                                                    <div class="col-xl-2 col-lg-2">
-                                                        iShop.LK
-                                                    </div>
-                                                    <div class="col-xl-1 col-lg-1">
-                                                        2020
-                                                    </div>
-                                                    <div class="col-xl-2 col-lg-2">
-                                                        264,000.00
-                                                    </div>
-                                                    <div class="col-xl-1 col-lg-1">
-                                                        6
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <div class="row">
-                                                    <div class="col-xl-1 col-lg-1">
-                                                        IT0001
-                                                    </div>
-                                                    <div class="col-xl-3 col-lg-3">
-                                                        Apple iPhone 12 Pro Max
-                                                    </div>
-                                                    <div class="col-xl-2 col-lg-2">
-                                                        Apple
-                                                    </div>
-                                                    <div class="col-xl-2 col-lg-2">
-                                                        iShop.LK
-                                                    </div>
-                                                    <div class="col-xl-1 col-lg-1">
-                                                        2020
-                                                    </div>
-                                                    <div class="col-xl-2 col-lg-2">
-                                                        264,000.00
-                                                    </div>
-                                                    <div class="col-xl-1 col-lg-1">
-                                                        6
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <div class="row">
-                                                    <div class="col-xl-1 col-lg-1">
-                                                        IT0001
-                                                    </div>
-                                                    <div class="col-xl-3 col-lg-3">
-                                                        Apple iPhone 12 Pro Max
-                                                    </div>
-                                                    <div class="col-xl-2 col-lg-2">
-                                                        Apple
-                                                    </div>
-                                                    <div class="col-xl-2 col-lg-2">
-                                                        iShop.LK
-                                                    </div>
-                                                    <div class="col-xl-1 col-lg-1">
-                                                        2020
-                                                    </div>
-                                                    <div class="col-xl-2 col-lg-2">
-                                                        264,000.00
-                                                    </div>
-                                                    <div class="col-xl-1 col-lg-1">
-                                                        6
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <div class="row">
-                                                    <div class="col-xl-1 col-lg-1">
-                                                        IT0001
-                                                    </div>
-                                                    <div class="col-xl-3 col-lg-3">
-                                                        Apple iPhone 12 Pro Max
-                                                    </div>
-                                                    <div class="col-xl-2 col-lg-2">
-                                                        Apple
-                                                    </div>
-                                                    <div class="col-xl-2 col-lg-2">
-                                                        iShop.LK
-                                                    </div>
-                                                    <div class="col-xl-1 col-lg-1">
-                                                        2020
-                                                    </div>
-                                                    <div class="col-xl-2 col-lg-2">
-                                                        264,000.00
-                                                    </div>
-                                                    <div class="col-xl-1 col-lg-1">
-                                                        6
-                                                    </div>
-                                                </div>
-                                            </li>
+
+                                            <div id="listItem"></div>
+
                                         </ul>
+                                        <div class="row">
+                                            <div class="col-xl-12 col-lg-12">
+                                                <div id="pageSpinner" class="d-none">Loading...</div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -398,6 +281,23 @@
 
     <!-- Custom scripts for all pages-->
     <script src="./js/custom-js.js"></script>
+
+
+    <script>
+        $(document).ready(function(){
+            $("#pageSpinner").removeClass("d-none");
+            $.ajax({
+                type: 'POST',
+                url: 'https://softeng-final.000webhostapp.com/admin_load_stock.php',
+                success: function(response) {
+                    $('#listItem').html(response);
+                    $("#pageSpinner").addClass("d-none");
+                }
+            });
+        });
+    </script>
+
+    
 </body>
 
 </html>
