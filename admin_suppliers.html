@@ -201,6 +201,7 @@
                                                     </div>
                                                 </div>
                                             </li>
+                                            <!-- Use to load records -->
                                             <div id="listItem"></div>
                                         </ul>
                                         <div class="row">
@@ -208,6 +209,7 @@
                                                 <div id="pageSpinner" class="d-none">Loading...</div>
                                             </div>
                                         </div>
+                                        <!-- Use to store selected records temporaray -->
                                         <div class="d-none" id="selectedToDel"></div>
                                         <div class="d-none" id="selectedToEdit"></div>
                                       </div>
@@ -264,6 +266,7 @@
     <script src="./js/custom-js.js"></script>
 
     <script>
+        //Ajax to retrieve data from DB
         function reloadSupList () {
             $("#pageSpinner").removeClass("d-none");
             $.ajax({
@@ -276,10 +279,12 @@
             });
         }
 
+        //Call when page is ready
         $(document).ready(function(){
             reloadSupList ();
         });
 
+        //Ajax script to send data to delete records
         function callDelete() {
             var val1 = document.getElementById('selectedToDel').innerHTML;
             $("#pageSpinner").removeClass("d-none");
@@ -295,6 +300,7 @@
             });
         }
 
+        //Ajax script to send data to edit records
         function callEdit() {
             var val1 = document.getElementById('selectedToEdit').innerHTML;
             var val2 = $('#comname').val();

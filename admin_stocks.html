@@ -219,7 +219,8 @@
                                                     </div>
                                                 </div>
                                             </li>
-
+                                            
+                                            <!-- This div is used for display the data which are getting from Ajax script -->
                                             <div id="listItem"></div>
 
                                         </ul>
@@ -268,7 +269,8 @@
                                                                     </div>
                                                                 </div>
                                                             </li>
-                
+                                                            
+                                                            <!-- Used to append search results -->
                                                             <div id="searchResutsAppend"></div>
                 
                                                         </ul>
@@ -344,6 +346,7 @@
 
 
     <script>
+        //Ajax for load stock records from DB
         $(document).ready(function(){
             $("#pageSpinner").removeClass("d-none");
             $.ajax({
@@ -356,6 +359,7 @@
             });
         });
 
+        //Ajax for retrieve search results according to keywords
         function searchStock() {
             $('#searchResutsAppend').html("");
             var val1 = $('#serachBox').val();

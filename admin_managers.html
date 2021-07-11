@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -164,10 +163,8 @@
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Registered Stock Managers</h1>
                     </div>
-
                         
                     <div class="row">
-
                         <!-- Area Chart -->
                         <div class="col-xl-12 col-lg-12">
                             <div class="card shadow mb-4">
@@ -203,11 +200,13 @@
                                               </li>
                                               <div id="listItem"></div>
                                             </ul>
+                                            <!-- This works as an spinner while backend loads data to the front end -->
                                             <div class="row">
                                                 <div class="col-xl-12 col-lg-12">
                                                     <div id="pageSpinner" class="d-none">Loading...</div>
                                                 </div>
                                             </div>
+                                            <!-- This devs are for store selected items to retreive them back -->
                                             <div class="d-none" id="selectedToDel"></div>
                                             <div class="d-none" id="selectedToEdit"></div>
                                       </div>
@@ -264,6 +263,7 @@
     <script src="./js/custom-js.js"></script>
 
     <script>
+        //Function for get table data from DB through PHP script and display 
         function reloadManList () {
             $("#pageSpinner").removeClass("d-none");
             $.ajax({
@@ -276,10 +276,12 @@
             });
         }
 
+        //Calling reloadManList() when document is ready
         $(document).ready(function(){
             reloadManList ();
         });
 
+        //Ajax script to send data which need to delete records
         function callDelete() {
             var val1 = document.getElementById('selectedToDel').innerHTML;
             $("#pageSpinner").removeClass("d-none");
@@ -295,6 +297,7 @@
             });
         }
 
+        //Ajax script to send data which need to edit records
         function callEdit() {
             var val1 = document.getElementById('selectedToEdit').innerHTML;
             var val2 = $('#manFirstName').val();
