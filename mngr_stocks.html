@@ -297,6 +297,28 @@
             });
         }
 
+        function callEdit() {
+            var val1 = document.getElementById('selectedToEdit').innerHTML;
+            var val2 = $('#itemName').val();
+            var val3 = $('#brandName').val();
+            var val4 = $('#supId').val();
+            var val5 = $('#manYear').val();
+            var val6 = $('#wholeSalep').val();
+            var val7 = $('#quantity').val();
+            $("#pageSpinner").removeClass("d-none");
+            $.ajax({
+                type: 'POST',
+                url: 'https://se-project-chinthanagsm.herokuapp.com/mngr_stocks_update_stocks.php',
+                data: { itemId: val1, itemName: val2, brandName: val3,  supId: val4, manYear: val5, wholeSalep: val6, quantity: val7 },
+                success: function(response) {
+                    console.log(response);
+                    //$('#demo').html(response);
+                    reloadStockList ();
+                    $("#pageSpinner").addClass("d-none");
+                }
+            });
+        }
+
     </script>
 </body>
 
