@@ -162,48 +162,28 @@
                                                     </div>
                                                     <form class="user">
                                                         <div class="form-group">
+                                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                                <div id="pageSpinner" class="d-none">Loading...</div>
+                                                            </div>
+                                                            <div id="listItem"></div>
                                                             
-                                                            <select class="form-control form-control-user-dropdown" name="supName" id="supName">
-                                                                <option value="">Stock ID (Select One)</option>
-                                                                <option value="genext"></option>
-                                                                <option value="singer"></option>
-                                                                <option value="keels"></option>
-                                                                <option value="ishop"></option>
-                                                                <option value="sinhagiri"></option>
-                                                            </select>
                                                             <span class="small">* Other info fields will complete automatically.</span>
                                                         </div>
+                                                        <input disabled type="text" class="d-none" id="stockName" name="stockName">
                                                         <div class="form-group">
-                                                            <input disabled type="text" class="form-control form-control-user" id="iname" placeholder="Item Name" name="itemName">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input disabled type="text" class="form-control form-control-user" id="bname" placeholder="Brand Name" name="brandName">
+                                                            <input disabled type="text" class="form-control form-control-user" id="brandName" placeholder="Brand Name" name="brandName">
                                                         </div>
                                                         <div class="form-group row">
                                                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                                                  <select disabled class="form-control form-control-user-dropdown" name="supName" id="supName">
-                                                                    <option value="">Company (Select One)</option>
-                                                                    <option value="genext">Genext (Pvt) Ltd.</option>
-                                                                    <option value="singer">Singer Sri Lanka</option>
-                                                                    <option value="keels">John Keells Holdings</option>
-                                                                    <option value="ishop">iShop.LK</option>
-                                                                    <option value="sinhagiri">Singhagiri (Pvt) Ltd. </option>
-                                                                </select>
+                                                                <input disabled type="text" class="form-control form-control-user" id="supName" placeholder="Supplier" name="supName">
                                                             </div>
-                                                            <div class="col-sm-6">
-                                                                <select disabled class="form-control form-control-user-dropdown" name="supName" id="supName">
-                                                                    <option value="">Man. Year (Select One)</option>
-                                                                    <option value="2017">2017</option>
-                                                                    <option value="2018">2018</option>
-                                                                    <option value="2019">2019</option>
-                                                                    <option value="2020">2020</option>
-                                                                    <option value="2021">2021</option>
-                                                                  </select>
+                                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                                <input disabled type="text" class="form-control form-control-user" id="manYear" placeholder="Man. Year" name="manYear">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
                                                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                                                <input disabled type="text" class="form-control form-control-user" id="bname" placeholder="Whole Sale Price" name="brandName">  
+                                                                <input disabled type="text" class="form-control form-control-user" id="wholeSalePrice" placeholder="Whole Sale Price" name="wholeSalePrice">  
                                                             </div>
                                                             <div class="col-sm-6">
                                                                 <input type="text" class="form-control form-control-user" id="quantity" placeholder="Quantity" name="quantity">
@@ -214,7 +194,7 @@
                                                         </div>
                                                         <div class="form-group row">
                                                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                                                <button type="button" class="btn btn-primary btn-user btn-block mb-3" onclick="loadDoc()">
+                                                                <button type="button" class="btn btn-primary btn-user btn-block mb-3" onclick="returnStockCall()">
                                                                     <i class="fas fa-file-import fa-fw"></i> Return Stock<span id="save-btn-spinner" class="spinner-border-sm"></span>
                                                                 </button>
                                                             </div>
@@ -281,6 +261,61 @@
 
     <!-- Custom scripts for all pages-->
     <script src="./js/custom-js.js"></script>
+
+    <div id="scriptResponse">
+
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $("#pageSpinner").removeClass("d-none");
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost/back-end/mngr_retrn_stock_load.php',
+                success: function(response) {
+                    $('#listItem').html(response);
+                    $("#pageSpinner").addClass("d-none");
+                }
+            });
+        });
+
+
+        function dropdownChange () {
+            var val1 = document.getElementById('stockId').value;
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost/back-end/mngr_retrn_stock_load_form.php',
+                data: { stockId: val1 },
+                success: function(response) {
+                    $('#scriptResponse').html(response);
+                }
+            });
+        }
+
+        function returnStockCall () {
+            $("#save-btn-spinner").addClass("spinner-border");
+            var val1 = document.getElementById('stockId').value;
+            var val2 = document.getElementById('stockName').value;
+            var val3 = document.getElementById('brandName').value;
+            var val4 = document.getElementById('supName').value;
+            var val5 = document.getElementById('manYear').value;
+            var val6 = document.getElementById('wholeSalePrice').value;
+            var val7 = document.getElementById('quantity').value;
+            var val8 = document.getElementById('return_note').value;
+            
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost/back-end/mngr_retrn_stock_updatedb.php',
+                data: { stockId: val1, stockName: val2, brandName: val3, supName: val4, manYear: val5, wholeSalePrice: val6, quantity: val7, return_note: val8 },
+                success: function(response) {
+                    $("#save-btn-spinner").removeClass("spinner-border");
+                    $('#demo').html(response);
+                }
+            });
+        }
+        
+        
+    </script>
 </body>
 
 </html>
