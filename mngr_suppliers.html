@@ -161,123 +161,30 @@
                                         <ul class="list-group list-group-flush">
                                             <li class="list-group-item list-group-item-dark">
                                                 <div class="row">
-                                                    <div class="col-xl-2 col-lg-2">
+                                                    <div class="col-xl-1 col-lg-1">
                                                         ID
                                                     </div>
-                                                    <div class="col-xl-3 col-lg-3">
+                                                    <div class="col-xl-2 col-lg-2">
                                                         Company Name
                                                     </div>
-                                                    <div class="col-xl-3 col-lg-3">
+                                                    <div class="col-xl-4 col-lg-4">
                                                         Address
                                                     </div>
                                                     <div class="col-xl-2 col-lg-2">
                                                         T.P.
                                                     </div>
-                                                    <div class="col-xl-2 col-lg-2">
+                                                    <div class="col-xl-3 col-lg-3">
                                                         E-mail
                                                     </div>
                                                 </div>
                                               </li>
-                                          <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col-xl-2 col-lg-2">
-                                                    SUP0001
-                                                </div>
-                                                <div class="col-xl-3 col-lg-3">
-                                                    Genext (Pvt) Ltd.
-                                                </div>
-                                                <div class="col-xl-3 col-lg-3">
-                                                    Colombo 07.
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    0114254578
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    contact@genext.lk
-                                                </div>
-                                            </div>
-                                          </li>
-                                          <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col-xl-2 col-lg-2">
-                                                    SUP0002
-                                                </div>
-                                                <div class="col-xl-3 col-lg-3">
-                                                    Singer Sri Lanka
-                                                </div>
-                                                <div class="col-xl-3 col-lg-3">
-                                                    No 112, Colombo 05.
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    0115214759
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    contact@singer.lk
-                                                </div>
-                                                
-                                            </div>
-                                          </li>
-                                          <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col-xl-2 col-lg-2">
-                                                    SUP0003
-                                                </div>
-                                                <div class="col-xl-3 col-lg-3">
-                                                    John Keells Holdings
-                                                </div>
-                                                <div class="col-xl-3 col-lg-3">
-                                                    No.117, Colombo 02.
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    0116845217
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    contact@keells.lk
-                                                </div>
-                                                
-                                            </div>
-                                          </li>
-                                          <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col-xl-2 col-lg-2">
-                                                    SUP0004
-                                                </div>
-                                                <div class="col-xl-3 col-lg-3">
-                                                    iShop.LK
-                                                </div>
-                                                <div class="col-xl-3 col-lg-3">
-                                                    Galle Rd., Colombo 04.
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    0779992123
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    contact@ishop.lk
-                                                </div>
-                                                
-                                            </div>
-                                          </li>
-                                          <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col-xl-2 col-lg-2">
-                                                    SUP0005
-                                                </div>
-                                                <div class="col-xl-3 col-lg-3">
-                                                    Singhagiri (Pvt) Ltd.
-                                                </div>
-                                                <div class="col-xl-3 col-lg-3">
-                                                    No.515, Colombo 10.
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    0115413413
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    websales@singhagiri.lk
-                                                </div>
-                                                
-                                            </div>
-                                          </li>
+                                              <div id="listItem"></div>
                                         </ul>
+                                        <div class="row">
+                                            <div class="col-xl-12 col-lg-12">
+                                                <div id="pageSpinner" class="d-none">Loading...</div>
+                                            </div>
+                                        </div>
                                       </div>
                                 </div>
                             </div>
@@ -330,6 +237,21 @@
 
     <!-- Custom scripts for all pages-->
     <script src="./js/custom-js.js"></script>
+
+    <script>
+        //Ajax for load stock records from DB
+        $(document).ready(function(){
+            $("#pageSpinner").removeClass("d-none");
+            $.ajax({
+                type: 'POST',
+                url: 'https://se-project-chinthanagsm.herokuapp.com/mngr_load_suppliers.php',
+                success: function(response) {
+                    $('#listItem').html(response);
+                    $("#pageSpinner").addClass("d-none");
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
