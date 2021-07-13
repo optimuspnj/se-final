@@ -283,7 +283,7 @@
             $("#pageSpinner").removeClass("d-none");
             $.ajax({
                 type: 'POST',
-                url: 'http://localhost/back-end/admin_load_returned_stock.php',
+                url: 'https://se-project-chinthanagsm.herokuapp.com/admin_load_returned_stock.php',
                 success: function(response) {
                     $('#listItem').html(response);
                     $("#pageSpinner").addClass("d-none");
