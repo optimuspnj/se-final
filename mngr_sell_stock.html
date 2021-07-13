@@ -276,7 +276,7 @@
             $("#pageSpinner").removeClass("d-none");
             $.ajax({
                 type: 'POST',
-                url: 'http://localhost/back-end/mngr_sell_stock_load.php',
+                url: 'https://se-project-chinthanagsm.herokuapp.com/mngr_sell_stock_load.php',
                 success: function(response) {
                     $('#listItem').html(response);
                     $("#pageSpinner").addClass("d-none");
@@ -288,7 +288,7 @@
             var val1 = document.getElementById('stockId').value;
             $.ajax({
                 type: 'POST',
-                url: 'http://localhost/back-end/mngr_sell_stock_load_form.php',
+                url: 'https://se-project-chinthanagsm.herokuapp.com/mngr_sell_stock_load_form.php',
                 data: { stockId: val1 },
                 success: function(response) {
                     $('#scriptResponse').html(response);
@@ -310,7 +310,7 @@
             
             $.ajax({
                 type: 'POST',
-                url: 'http://localhost/back-end/mngr_sell_stock_updatedb.php',
+                url: 'https://se-project-chinthanagsm.herokuapp.com/mngr_sell_stock_updatedb.php',
                 data: { stockId: val1, stockName: val2, brandName: val3, supName: val4, manYear: val5, wholeSalePrice: val6, retailPrice: val7, quantity: val8, sell_note: val9 },
                 success: function(response) {
                     $("#save-btn-spinner").removeClass("spinner-border");
