@@ -283,6 +283,9 @@
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <div class="chart-area">
+                                        <div class="col-xl-12 col-lg-12">
+                                            <div class="d-none pageSpinner">Loading...</div>
+                                        </div>
                                         <canvas id="myAreaChart"></canvas>
                                     </div>
                                 </div>
@@ -382,7 +385,7 @@
             $(".pageSpinner").removeClass("d-none");
             $.ajax({
                 type: 'POST',
-                url: 'http://localhost/back-end/admin_load_dash.php',
+                url: 'https://se-project-chinthanagsm.herokuapp.com/admin_load_dash.php',
                 success: function(response) {
                     $('#dashItemsLoad').html(response);
                     $(".pageSpinner").addClass("d-none");
@@ -391,7 +394,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: 'http://localhost/back-end/admin_load_dash_barchart.php',
+                url: 'https://se-project-chinthanagsm.herokuapp.com/admin_load_dash_barchart.php',
                 success: function(response) {
                     $('#barChartLoad').html(response);
                 }
