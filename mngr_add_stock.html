@@ -286,7 +286,50 @@
             loadSuppliers ();
         });
 
+        //Validation scripts
+
         function callAddStock() {
+            var val1 = $('#itemName').val();
+            var val2 = $('#brandName').val();
+            var val3 = $('#supId').val();
+            var val4 = $('#manYear').val();
+            var val5 = $('#wholeSalep').val();
+            var val6 = $('#quantity').val();
+
+            if (val1 == "") {
+                $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> Item name cannot be empty!</div>");
+            }
+            else {
+                if (val2 == "") {
+                    $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> Brand name cannot be empty!</div>");
+                }
+                else {
+                    if (val3 == "") {
+                        $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> Supplier name cannot be empty!</div>");
+                    }
+                    else {
+                        if (val4 == "") {
+                            $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> Manufactured year cannot be empty!</div>");
+                        }
+                        else {
+                            if (val5 == "") {
+                                $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> Whole sale price cannot be empty!</div>");
+                            }
+                            else {
+                                if (val6 == "") {
+                                    $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> Quantity cannot be empty!</div>");
+                                }
+                                else {
+                                    callAddStockInsert();
+                                }
+                            }
+                        }
+                    }
+                } 
+            } 
+        }
+
+        function callAddStockInsert() {
         var val1 = $('#itemName').val();
         var val2 = $('#brandName').val();
         var val3 = $('#supId').val();

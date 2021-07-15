@@ -254,12 +254,49 @@
     <script src="./js/custom-js.js"></script>
 
     <script>
-        //Ajax function to pass data to relevent script
+        //Validation script
+        function validateEmail(email) {
+        const res = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return res.test(String(email).toLowerCase());
+        }
+
         function loadDoc() {
-        var val1 = $('#supname').val();
-        var val2 = $('#supaddress').val();
-        var val3 = $('#suptp').val();
-        var val4 = $('#supemail').val();
+            var val1 = $('#supname').val();
+            var val2 = $('#supaddress').val();
+            var val3 = $('#suptp').val();
+            var val4 = $('#supemail').val();
+
+            var numbersOnly = /^\d+$/;
+
+            if (val1 == "") {
+                $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> Name cannot be empty!</div>");
+            }
+            else {
+                if (val2 == "") {
+                    $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> Address cannot be empty!</div>");
+                }
+                else {
+                    if(!/^[0-9]+$/.test(val3)) {
+                        $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> Invalid telephone number!</div>");
+                    }
+                    else {
+                        if(!validateEmail(val4)) {
+                            $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> Invalid Email!</div>");
+                        }
+                        else {
+                            loadDocRequest();
+                        }
+                    }
+                }
+            } 
+        }
+
+        //Ajax function to pass data to relevent script
+        function loadDocRequest() {
+            var val1 = $('#supname').val();
+            var val2 = $('#supaddress').val();
+            var val3 = $('#suptp').val();
+            var val4 = $('#supemail').val();
         $("#save-btn-spinner").addClass("spinner-border");
             $.ajax({
                 type: 'POST',

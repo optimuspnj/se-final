@@ -293,7 +293,33 @@
             });
         }
 
-        function sellStockCall () {
+        //Validation scripts
+
+        function sellStockCall() {
+
+            var val1 = document.getElementById('stockId').value;
+            var val8 = document.getElementById('quantity').value;
+            var val7 = document.getElementById('retailPrice').value;
+
+            if (val1 == "") {
+                $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> You have to select a stock to sell!</div>");
+            }
+            else {
+                if (val8 == "") {
+                    $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> Quantity cannot be empty!</div>");
+                }
+                else {
+                    if (val7 == "") {
+                        $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> Retail price cannot be empty!</div>");
+                    }
+                    else {
+                        sellStockCallInsert();
+                    }
+                }
+            }
+        }
+
+        function sellStockCallInsert () {
             $("#save-btn-spinner").addClass("spinner-border");
             var val1 = document.getElementById('stockId').value;
             var val2 = document.getElementById('stockName').value;

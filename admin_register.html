@@ -209,8 +209,52 @@
     <script src="js/custom-js.js"></script>
 
     <script>
-        //Ajax script to submit form data and get server response
+        //Validation script
+        function validateEmail(email) {
+        const res = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return res.test(String(email).toLowerCase());
+        }
+
         function loadDoc() {
+            var val1 = $('#fname').val();
+            var val2 = $('#lname').val();
+            var val3 = $('#email').val();
+            var val4 = $('#uname').val();
+            var val5 = $('#inpass').val();
+            var val6 = $('#repass').val();
+
+            var numbersOnly = /^\d+$/;
+
+            if (val1 == "") {
+                $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> Name cannot be empty!</div>");
+            }
+            else {
+                if (!validateEmail(val3)) {
+                    $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> Invalid Email!</div>");
+                }
+                else {
+                    if(val4.length < 8 || val4.length > 32) {
+                        $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> Username must be between 8 - 32 characters long!</div>");
+                    }
+                    else {
+                        if(val5.length < 8 || val5.length > 32) {
+                            $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> Password must be between 8 - 32 characters long!</div>");
+                        }
+                        else {
+                            if (val5 != val6) {
+                                $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> Password do not match!</div>");
+                            }
+                            else {
+                                loadDocRequest();
+                            }
+                        }
+                    }
+                }
+            } 
+        }
+
+        //Ajax script to submit form data and get server response
+        function loadDocRequest() {
         var val1 = $('#fname').val();
         var val2 = $('#lname').val();
         var val3 = $('#email').val();

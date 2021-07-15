@@ -289,7 +289,25 @@
             });
         }
 
+        //Validation scripts
         function returnStockCall () {
+            var val1 = document.getElementById('stockId').value;
+            var val7 = document.getElementById('quantity').value;
+
+            if (val1 == "") {
+                $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> You have to select a stock to return!</div>");
+            }
+            else {
+                if (val7 == "") {
+                    $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> Quantity cannot be empty!</div>");
+                }
+                else {
+                    returnStockCallInsert();
+                }
+            }
+        }
+
+        function returnStockCallInsert () {
             $("#save-btn-spinner").addClass("spinner-border");
             var val1 = document.getElementById('stockId').value;
             var val2 = document.getElementById('stockName').value;
