@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Admin - Add Supplier</title>
+    <title>Manager - Sell Stocks</title>
 
     <!-- Custom fonts-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
+
     <!-- Custom styles-->
     <link href="css/custom-bootstrap.css" rel="stylesheet">
 </head>
@@ -33,8 +35,8 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="#">
-                    <i class="fas fa-fw fa-truck"></i>
-                    <span>Add Supplier</span></a>
+                    <i class="fas fa-fw fa-cube"></i>
+                    <span>Sell Stocks</span></a>
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -52,8 +54,7 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Supplier Functions:</h6>
-                        <a class="collapse-item active" href="#">Add Suppliers</a>
-                        <a class="collapse-item" href="./admin_suppliers.html">View/Update Suppliers</a>
+                        <a class="collapse-item" href="./mngr_suppliers.html">View Suppliers</a>
                         <div class="collapse-divider"></div>
                     </div>
                 </div>
@@ -69,29 +70,17 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Stock Functions:</h6>
-                        <a class="collapse-item" href="./admin_stocks.html">View Stocks</a>
-                        <a class="collapse-item" href="./admin_sold_stocks.html">Sold Stocks</a>
-                        <a class="collapse-item" href="./admin_returned_stocks.html">Returned Stocks</a>
-                    </div>
-                </div>
-            </li>
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Settings</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Manager Accounts</h6>
-                        <a class="collapse-item" href="./admin_register.html">Create Manager Account</a>
-                        <a class="collapse-item" href="./admin_managers.html">Edit Manager Accounts</a>
+                        <a class="collapse-item" href="./mngr_add_stock.html">Add Stocks</a>
+                        <a class="collapse-item" href="./mngr_stocks.html">View/Update Stocks</a>
+                        <a class="collapse-item active" href="#">Sell Stocks</a>
+                        <a class="collapse-item" href="./mngr_retrn_stock.html">Return Stocks</a>
+                        <a class="collapse-item" href="./mngr_sold_stocks.html">Sold Stocks</a>
+                        <a class="collapse-item" href="./mngr_returned_stocks.html">Returned Stocks</a>
                     </div>
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="./admin_dash.html"
+                <a class="nav-link collapsed" href="./mngr_dash.html"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span>
@@ -125,7 +114,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Stock Manager</span>
                                 <img class="img-profile rounded-circle"
                                     src="./img/user.svg">
                             </a>
@@ -149,7 +138,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Add Supplier</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Sell Stocks</h1>
                     </div>
 
                         
@@ -162,31 +151,53 @@
                                     <div class="card-body p-0">
                                         <!-- Nested Row within Card Body -->
                                         <div class="row">
-                                            <div class="col-lg-5 d-none d-lg-block bg-add-supplier-image"></div>
+                                            <div class="col-lg-5 d-none d-lg-block bg-sell-stock-image"></div>
                                             <div class="col-lg-7">
                                                 <div class="p-5">
                                                     <div class="text-center">
-                                                        <h1 class="h4 text-gray-900 mb-4">Enter Supplier Details</h1>
+                                                        <h1 class="h4 text-gray-900 mb-4">Enter Sold Stock Details</h1>
                                                     </div>
                                                     <form class="user">
                                                         <div class="form-group">
-                                                            <input type="text" class="form-control form-control-user" id="supname" placeholder="Supplier Name" name="supname">
+                                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                                <div id="pageSpinner" class="d-none">Loading...</div>
+                                                            </div>
+                                                            <div id="listItem"></div>
+                                                            <span class="small">* Other info fields will complete automatically.</span>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="text" class="form-control form-control-user" id="supaddress" placeholder="Address" name="supaddress">
+                                                            <input disabled type="text" class="form-control form-control-user" id="stockName" placeholder="Item Name" name="stockName">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input disabled type="text" class="form-control form-control-user" id="brandName" placeholder="Brand Name" name="brandName">
                                                         </div>
                                                         <div class="form-group row">
                                                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                                                <input type="text" class="form-control form-control-user" id="suptp" placeholder="Telephone" name="suptp">  
+                                                                <input disabled type="text" class="form-control form-control-user" id="supName" placeholder="Supplier" name="supName">
+                                                            </div>
+                                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                                <input disabled type="text" class="form-control form-control-user" id="manYear" placeholder="Man. Year" name="manYear">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                                <input disabled type="text" class="form-control form-control-user" id="wholeSalePrice" placeholder="Whole Sale Price" name="wholeSalePrice">  
                                                             </div>
                                                             <div class="col-sm-6">
-                                                                <input type="text" class="form-control form-control-user" id="supemail" placeholder="E-mail" name="supemail">
+                                                                <input type="text" class="form-control form-control-user" id="quantity" placeholder="Quantity" name="quantity">
                                                             </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control form-control-user" id="retailPrice" placeholder="Retail Price" name="retailPrice">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <textarea class="form-control" id="sell_note" name="sell_note" rows="4" cols="50">Sell Notice</textarea>
                                                         </div>
                                                         <div class="form-group row">
                                                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                                                <button type="button" class="btn btn-primary btn-user btn-block mb-3" onclick="loadDoc()">
-                                                                    <i class="fas fa-file-import fa-fw"></i> Submit New Supplier <span id="save-btn-spinner" class="spinner-border-sm"></span>
+                                                                <button type="button" class="btn btn-primary btn-user btn-block mb-3" onclick="sellStockCall()">
+                                                                    <i class="fas fa-file-import fa-fw"></i> Sell Stock<span id="save-btn-spinner" class="spinner-border-sm"></span>
                                                                 </button>
                                                             </div>
                                                             <div class="col-sm-6">
@@ -253,55 +264,77 @@
     <!-- Custom scripts for all pages-->
     <script src="./js/custom-js.js"></script>
 
+    <div id="scriptResponse">
+
+    </div>
+
     <script>
-        //Validation script
-        function validateEmail(email) {
-        const res = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return res.test(String(email).toLowerCase());
-        }
-
-        function loadDoc() {
-            var val1 = $('#supname').val();
-            var val2 = $('#supaddress').val();
-            var val3 = $('#suptp').val();
-            var val4 = $('#supemail').val();
-
-            var numbersOnly = /^\d+$/;
-
-            if (val1 == "") {
-                $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> Name cannot be empty!</div>");
-            }
-            else {
-                if (val2 == "") {
-                    $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> Address cannot be empty!</div>");
-                }
-                else {
-                    if(!/^[0-9]+$/.test(val3)) {
-                        $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> Invalid telephone number!</div>");
-                    }
-                    else {
-                        if(!validateEmail(val4)) {
-                            $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> Invalid Email!</div>");
-                        }
-                        else {
-                            loadDocRequest();
-                        }
-                    }
-                }
-            } 
-        }
-
-        //Ajax function to pass data to relevent script
-        function loadDocRequest() {
-            var val1 = $('#supname').val();
-            var val2 = $('#supaddress').val();
-            var val3 = $('#suptp').val();
-            var val4 = $('#supemail').val();
-        $("#save-btn-spinner").addClass("spinner-border");
+        $(document).ready(function(){
+            $("#pageSpinner").removeClass("d-none");
             $.ajax({
                 type: 'POST',
-                url: 'https://se-project-chinthanagsm.herokuapp.com/admin_add_supplier.php',
-                data: { supname: val1, supaddr: val2, suptp: val3, supemail: val4 },
+                url: 'https://se-project-chinthanagsm.herokuapp.com/mngr_sell_stock_load.php',
+                success: function(response) {
+                    $('#listItem').html(response);
+                    $("#pageSpinner").addClass("d-none");
+                }
+            });
+        });
+
+        function dropdownChange () {
+            var val1 = document.getElementById('stockId').value;
+            $.ajax({
+                type: 'POST',
+                url: 'https://se-project-chinthanagsm.herokuapp.com/mngr_sell_stock_load_form.php',
+                data: { stockId: val1 },
+                success: function(response) {
+                    $('#scriptResponse').html(response);
+                }
+            });
+        }
+
+        //Validation scripts
+
+        function sellStockCall() {
+
+            var val1 = document.getElementById('stockId').value;
+            var val8 = document.getElementById('quantity').value;
+            var val7 = document.getElementById('retailPrice').value;
+
+            if (val1 == "") {
+                $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> You have to select a stock to sell!</div>");
+            }
+            else {
+                if (val8 == "") {
+                    $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> Quantity cannot be empty!</div>");
+                }
+                else {
+                    if (val7 == "") {
+                        $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> Retail price cannot be empty!</div>");
+                    }
+                    else {
+                        sellStockCallInsert();
+                    }
+                }
+            }
+        }
+
+        function sellStockCallInsert () {
+            $("#save-btn-spinner").addClass("spinner-border");
+            var val1 = document.getElementById('stockId').value;
+            var val2 = document.getElementById('stockName').value;
+            var val3 = document.getElementById('brandName').value;
+            var val4 = document.getElementById('supName').value;
+            var val5 = document.getElementById('manYear').value;
+            var val6 = document.getElementById('wholeSalePrice').value;
+            var val7 = document.getElementById('retailPrice').value;
+            var val8 = document.getElementById('quantity').value;
+            var val9 = document.getElementById('sell_note').value;
+            
+            $.ajax({
+                type: 'POST',
+                url: 'https://se-project-chinthanagsm.herokuapp.com/mngr_sell_stock_updatedb.php',
+                data: { stockId: val1, stockName: val2, brandName: val3, supName: val4, manYear: val5, wholeSalePrice: val6, retailPrice: val7, quantity: val8, sell_note: val9 },
                 success: function(response) {
                     $("#save-btn-spinner").removeClass("spinner-border");
                     $('#demo').html(response);

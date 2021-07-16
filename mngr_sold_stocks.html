@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Admin - Manage Stocks</title>
+    <title>Manager - View Sold Stocks</title>
 
     <!-- Custom fonts-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -36,7 +36,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-cube"></i>
-                    <span>View Stocks</span></a>
+                    <span>View Sold Stocks</span></a>
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -54,8 +54,7 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Supplier Functions:</h6>
-                        <a class="collapse-item" href="./admin_add_supplier.html">Add Suppliers</a>
-                        <a class="collapse-item" href="./admin_suppliers.html">View/Update Suppliers</a>
+                        <a class="collapse-item" href="./mngr_suppliers.html">View Suppliers</a>
                         <div class="collapse-divider"></div>
                     </div>
                 </div>
@@ -71,29 +70,17 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Stock Functions:</h6>
-                        <a class="collapse-item active" href="#">View Stock</a>
-                        <a class="collapse-item" href="./admin_sold_stocks.html">Sold Stocks</a>
-                        <a class="collapse-item" href="./admin_returned_stocks.html">Returned Stocks</a>
-                    </div>
-                </div>
-            </li>
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Settings</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Manager Accounts</h6>
-                        <a class="collapse-item" href="./admin_register.html">Create Manager Account</a>
-                        <a class="collapse-item" href="./admin_managers.html">Edit Manager Accounts</a>
+                        <a class="collapse-item" href="./mngr_add_stock.html">Add Stocks</a>
+                        <a class="collapse-item" href="./mngr_stocks.html">View/Update Stocks</a>
+                        <a class="collapse-item" href="./mngr_sell_stock.html">Sell Stocks</a>
+                        <a class="collapse-item" href="./mngr_retrn_stock.html">Return Stocks</a>
+                        <a class="collapse-item active" href="#">Sold Stocks</a>
+                        <a class="collapse-item" href="./mngr_returned_stocks.html">Returned Stocks</a>
                     </div>
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="./admin_dash.html"
+                <a class="nav-link collapsed" href="./mngr_dash.html"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span>
@@ -127,7 +114,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Stock Manager</span>
                                 <img class="img-profile rounded-circle"
                                     src="./img/user.svg">
                             </a>
@@ -151,7 +138,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Stock Details</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Sold Stock Details</h1>
                     </div>
 
                         
@@ -163,22 +150,12 @@
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Stocks Table</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Sold Stocks Table</h6>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <div class="container mb-2">
-                                        <form class="form-inline my-2 my-md-0">                      
-                                            <div class="input-group">                           
-                                                <input type="text" class="form-control bg-light border-0 small" id="serachBox" placeholder="Search for..."
-                                                aria-label="Search" aria-describedby="basic-addon2">                        
-                                                <div class="input-group-append">                           
-                                                <button class="btn btn-success" type="button" data-toggle="modal" data-target="#searchResults" onclick="searchStock()">                                  
-                                                    <i class="fas fa-search fa-sm"></i>                            
-                                                    </button>                    
-                                                </div>                      
-                                            </div>                  
-                                        </form>
+                                        
                                     </div>
                                     
                                     <div class="container">
@@ -188,10 +165,10 @@
                                                     <div class="col-xl-1 col-lg-1">
                                                         ID
                                                     </div>
-                                                    <div class="col-xl-3 col-lg-3">
+                                                    <div class="col-xl-2 col-lg-2">
                                                         Item Name
                                                     </div>
-                                                    <div class="col-xl-2 col-lg-2">
+                                                    <div class="col-xl-1 col-lg-1">
                                                         Brand Name
                                                     </div>
                                                     <div class="col-xl-2 col-lg-2">
@@ -201,14 +178,16 @@
                                                         Manu. Year
                                                     </div>
                                                     <div class="col-xl-2 col-lg-2">
-                                                        W/S Price (Rs.)
+                                                        Profit (Rs.)
                                                     </div>
                                                     <div class="col-xl-1 col-lg-1">
                                                         Quantity
                                                     </div>
+                                                    <div class="col-xl-2 col-lg-2">
+                                                        Note
+                                                    </div>
                                                 </div>
                                             </li>
-                                            
                                             <!-- This div is used for display the data which are getting from Ajax script -->
                                             <div id="listItem"></div>
 
@@ -218,68 +197,7 @@
                                                 <div id="pageSpinner" class="d-none">Loading...</div>
                                             </div>
                                         </div>
-                                    <!-- The Modal -->
-                                    <div class="modal" id="searchResults">
-                                        <div class="modal-dialog modal-xl">
-                                            <div class="modal-content">
-      
-                                                <!-- Modal Header -->
-                                                <div class="modal-header">
-                                                    <h3 class="modal-title">Search Results...</h3>
-                                                    <button type="button" class="close" data-dismiss="modal">×</button>
-                                                </div>
-        
-                                                <!-- Modal body -->
-                                                <div class="modal-body">
-                                                    <div class="container">
-                                                        <ul class="list-group list-group-flush">
-                                                            <li class="list-group-item list-group-item-dark">
-                                                                <div class="row">
-                                                                    <div class="col-xl-1 col-lg-1">
-                                                                        ID
-                                                                    </div>
-                                                                    <div class="col-xl-3 col-lg-3">
-                                                                        Item Name
-                                                                    </div>
-                                                                    <div class="col-xl-2 col-lg-2">
-                                                                        Brand Name
-                                                                    </div>
-                                                                    <div class="col-xl-2 col-lg-2">
-                                                                        Supplier
-                                                                    </div>
-                                                                    <div class="col-xl-1 col-lg-1">
-                                                                        Manu. Year
-                                                                    </div>
-                                                                    <div class="col-xl-2 col-lg-2">
-                                                                        W/S Price (Rs.)
-                                                                    </div>
-                                                                    <div class="col-xl-1 col-lg-1">
-                                                                        Quantity
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            
-                                                            <!-- Used to append search results -->
-                                                            <div id="searchResutsAppend"></div>
-                
-                                                        </ul>
-                                                        <div class="row">
-                                                            <div class="col-xl-12 col-lg-12">
-                                                                <div id="searchSpinner" class="d-none">Loading...</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-        
-                                                <!-- Modal footer -->
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                                </div>
-        
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
+
                                     </div>
                                 </div>
                             </div>
@@ -333,40 +251,19 @@
     <!-- Custom scripts for all pages-->
     <script src="./js/custom-js.js"></script>
 
-
     <script>
-        //Ajax for load stock records from DB
         $(document).ready(function(){
             $("#pageSpinner").removeClass("d-none");
             $.ajax({
                 type: 'POST',
-                url: 'https://se-project-chinthanagsm.herokuapp.com/admin_load_stock.php',
+                url: 'https://se-project-chinthanagsm.herokuapp.com/mngr_load_sold_stock.php',
                 success: function(response) {
                     $('#listItem').html(response);
                     $("#pageSpinner").addClass("d-none");
                 }
             });
         });
-
-        //Ajax for retrieve search results according to keywords
-        function searchStock() {
-            $('#searchResutsAppend').html("");
-            var val1 = $('#serachBox').val();
-            $("#searchSpinner").removeClass("d-none");
-            $.ajax({
-                type: 'POST',
-                url: 'https://se-project-chinthanagsm.herokuapp.com/admin_search_stock.php',
-                data: { searchKey: val1 },
-                success: function(response) {
-                    $('#searchResutsAppend').html(response);
-                    $("#searchSpinner").addClass("d-none");
-                }
-            });
-        
-        }
     </script>
-
-    
 </body>
 
 </html>

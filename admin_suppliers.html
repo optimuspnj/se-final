@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Manage Suppliers</title>
+    <title>Admin - Manage Suppliers</title>
 
     <!-- Custom fonts-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -34,7 +34,7 @@
             <hr class="sidebar-divider mt-4 mb-0">
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-truck"></i>
                     <span>View/Update Supplier</span></a>
             </li>
@@ -71,7 +71,9 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Stock Functions:</h6>
-                        <a class="collapse-item" href="./admin_stocks.html">View Stock</a>
+                        <a class="collapse-item" href="./admin_stocks.html">View Stocks</a>
+                        <a class="collapse-item" href="./admin_sold_stocks.html">Sold Stocks</a>
+                        <a class="collapse-item" href="./admin_returned_stocks.html">Returned Stocks</a>
                     </div>
                 </div>
             </li>
@@ -85,8 +87,8 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Manager Accounts</h6>
-                        <a class="collapse-item" href="./admin_register.html">Create Account</a>
-                        <a class="collapse-item" href="./admin_manage_accounts.html">Manage Accounts</a>
+                        <a class="collapse-item" href="./admin_register.html">Create Manager Account</a>
+                        <a class="collapse-item" href="./admin_managers.html">Edit Manager Accounts</a>
                     </div>
                 </div>
             </li>
@@ -132,19 +134,6 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
-                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
@@ -201,6 +190,7 @@
                                                     </div>
                                                 </div>
                                             </li>
+                                            <!-- Use to load records -->
                                             <div id="listItem"></div>
                                         </ul>
                                         <div class="row">
@@ -208,6 +198,7 @@
                                                 <div id="pageSpinner" class="d-none">Loading...</div>
                                             </div>
                                         </div>
+                                        <!-- Use to store selected records temporaray -->
                                         <div class="d-none" id="selectedToDel"></div>
                                         <div class="d-none" id="selectedToEdit"></div>
                                       </div>
@@ -247,7 +238,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="index.html">Logout</a>
                 </div>
             </div>
         </div>
@@ -264,11 +255,12 @@
     <script src="./js/custom-js.js"></script>
 
     <script>
+        //Ajax to retrieve data from DB
         function reloadSupList () {
             $("#pageSpinner").removeClass("d-none");
             $.ajax({
                 type: 'POST',
-                url: 'https://softeng-final.000webhostapp.com/admin_load_suppliers.php',
+                url: 'https://se-project-chinthanagsm.herokuapp.com/admin_load_suppliers.php',
                 success: function(response) {
                     $('#listItem').html(response);
                     $("#pageSpinner").addClass("d-none");
@@ -276,16 +268,18 @@
             });
         }
 
+        //Call when page is ready
         $(document).ready(function(){
             reloadSupList ();
         });
 
+        //Ajax script to send data to delete records
         function callDelete() {
             var val1 = document.getElementById('selectedToDel').innerHTML;
             $("#pageSpinner").removeClass("d-none");
             $.ajax({
                 type: 'POST',
-                url: 'https://softeng-final.000webhostapp.com/admin_delete_suppliers.php',
+                url: 'https://se-project-chinthanagsm.herokuapp.com/admin_delete_suppliers.php',
                 data: { delSupId: val1 },
                 success: function(response) {
                     //$('#demo').html(response);
@@ -295,6 +289,7 @@
             });
         }
 
+        //Ajax script to send data to edit records
         function callEdit() {
             var val1 = document.getElementById('selectedToEdit').innerHTML;
             var val2 = $('#comname').val();
@@ -304,7 +299,7 @@
             $("#pageSpinner").removeClass("d-none");
             $.ajax({
                 type: 'POST',
-                url: 'https://softeng-final.000webhostapp.com/admin_update_suppliers.php',
+                url: 'https://se-project-chinthanagsm.herokuapp.com/admin_update_suppliers.php',
                 data: { editSupId: val1, editSupName: val2, editSupAddr: val3,  editSupTp: val4, editSupEm: val5 },
                 success: function(response) {
                     //$('#demo').html(response);

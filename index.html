@@ -73,13 +73,32 @@
     <script src="js/custom-js.js"></script>
 
     <script>
+        //Validation scripts
+
         function loadDoc() {
+            var val1 = $('#user').val();
+            var val2 = $('#pass').val();
+
+            if (val1 == "") {
+                $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> Username cannot be empty!</div>");
+            } else {
+                if (val2 == "") {
+                    $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> Password cannot be empty!</div>");
+                } else {
+                    loadDocRequest();
+                }
+            }
+        }
+
+
+        //Ajax to send username and password and get server response
+        function loadDocRequest() {
         var val1 = $('#user').val();
         var val2 = $('#pass').val();
         $("#save-btn-spinner").addClass("spinner-border");
             $.ajax({
                 type: 'POST',
-                url: 'https://softeng-final.000webhostapp.com/login.php',
+                url: 'https://se-project-chinthanagsm.herokuapp.com/login.php',
                 data: { user: val1, pass: val2 },
                 success: function(response) {
                     $("#save-btn-spinner").removeClass("spinner-border");

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>System - Register</title>
+    <title>Admin - Create Manager Account</title>
 
     <!-- Custom fonts-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -34,7 +34,7 @@
             <hr class="sidebar-divider mt-4 mb-0">
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Create Manager Account</span></a>
             </li>
@@ -71,7 +71,9 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Stock Functions:</h6>
-                        <a class="collapse-item" href="./admin_stocks.html">View Stock</a>
+                        <a class="collapse-item" href="./admin_stocks.html">View Stocks</a>
+                        <a class="collapse-item" href="./admin_sold_stocks.html">Sold Stocks</a>
+                        <a class="collapse-item" href="./admin_returned_stocks.html">Returned Stocks</a>
                     </div>
                 </div>
             </li>
@@ -85,8 +87,8 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Manager Accounts</h6>
-                        <a class="collapse-item active" href="#">Create Account</a>
-                        <a class="collapse-item" href="./admin_manage_accounts.html">Manage Accounts</a>
+                        <a class="collapse-item active" href="#">Create Manager Account</a>
+                        <a class="collapse-item" href="./admin_managers.html">Edit Manager Accounts</a>
                     </div>
                 </div>
             </li>
@@ -132,19 +134,6 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
-                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
@@ -220,7 +209,52 @@
     <script src="js/custom-js.js"></script>
 
     <script>
+        //Validation script
+        function validateEmail(email) {
+        const res = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return res.test(String(email).toLowerCase());
+        }
+
         function loadDoc() {
+            var val1 = $('#fname').val();
+            var val2 = $('#lname').val();
+            var val3 = $('#email').val();
+            var val4 = $('#uname').val();
+            var val5 = $('#inpass').val();
+            var val6 = $('#repass').val();
+
+            var numbersOnly = /^\d+$/;
+
+            if (val1 == "") {
+                $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> Name cannot be empty!</div>");
+            }
+            else {
+                if (!validateEmail(val3)) {
+                    $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> Invalid Email!</div>");
+                }
+                else {
+                    if(val4.length < 8 || val4.length > 32) {
+                        $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> Username must be between 8 - 32 characters long!</div>");
+                    }
+                    else {
+                        if(val5.length < 8 || val5.length > 32) {
+                            $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> Password must be between 8 - 32 characters long!</div>");
+                        }
+                        else {
+                            if (val5 != val6) {
+                                $('#demo').html("<div class='alert alert-danger alert-dismissible fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong id='demo'>Error!</strong> Password do not match!</div>");
+                            }
+                            else {
+                                loadDocRequest();
+                            }
+                        }
+                    }
+                }
+            } 
+        }
+
+        //Ajax script to submit form data and get server response
+        function loadDocRequest() {
         var val1 = $('#fname').val();
         var val2 = $('#lname').val();
         var val3 = $('#email').val();
@@ -229,7 +263,7 @@
         $("#save-btn-spinner").addClass("spinner-border");
             $.ajax({
                 type: 'POST',
-                url: 'https://softeng-final.000webhostapp.com/register.php',
+                url: 'https://se-project-chinthanagsm.herokuapp.com/register.php',
                 data: { fname: val1, lname: val2, email: val3, uname: val4, pass: val5},
                 success: function(response) {
                     $("#save-btn-spinner").removeClass("spinner-border");

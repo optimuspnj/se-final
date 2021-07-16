@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Manage Suppliers</title>
+    <title>Manager - View Suppliers</title>
 
     <!-- Custom fonts-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -34,7 +34,7 @@
             <hr class="sidebar-divider mt-4 mb-0">
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-truck"></i>
                     <span>Supplier Details</span></a>
             </li>
@@ -72,9 +72,19 @@
                         <h6 class="collapse-header">Stock Functions:</h6>
                         <a class="collapse-item" href="./mngr_add_stock.html">Add Stocks</a>
                         <a class="collapse-item" href="./mngr_stocks.html">View/Update Stocks</a>
+                        <a class="collapse-item" href="./mngr_sell_stock.html">Sell Stocks</a>
                         <a class="collapse-item" href="./mngr_retrn_stock.html">Return Stocks</a>
+                        <a class="collapse-item" href="./mngr_sold_stocks.html">Sold Stocks</a>
+                        <a class="collapse-item" href="./mngr_returned_stocks.html">Returned Stocks</a>
                     </div>
                 </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="./mngr_dash.html"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -111,19 +121,6 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
-                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
@@ -161,123 +158,30 @@
                                         <ul class="list-group list-group-flush">
                                             <li class="list-group-item list-group-item-dark">
                                                 <div class="row">
-                                                    <div class="col-xl-2 col-lg-2">
+                                                    <div class="col-xl-1 col-lg-1">
                                                         ID
                                                     </div>
-                                                    <div class="col-xl-3 col-lg-3">
+                                                    <div class="col-xl-2 col-lg-2">
                                                         Company Name
                                                     </div>
-                                                    <div class="col-xl-3 col-lg-3">
+                                                    <div class="col-xl-4 col-lg-4">
                                                         Address
                                                     </div>
                                                     <div class="col-xl-2 col-lg-2">
                                                         T.P.
                                                     </div>
-                                                    <div class="col-xl-2 col-lg-2">
+                                                    <div class="col-xl-3 col-lg-3">
                                                         E-mail
                                                     </div>
                                                 </div>
                                               </li>
-                                          <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col-xl-2 col-lg-2">
-                                                    SUP0001
-                                                </div>
-                                                <div class="col-xl-3 col-lg-3">
-                                                    Genext (Pvt) Ltd.
-                                                </div>
-                                                <div class="col-xl-3 col-lg-3">
-                                                    Colombo 07.
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    0114254578
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    contact@genext.lk
-                                                </div>
-                                            </div>
-                                          </li>
-                                          <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col-xl-2 col-lg-2">
-                                                    SUP0002
-                                                </div>
-                                                <div class="col-xl-3 col-lg-3">
-                                                    Singer Sri Lanka
-                                                </div>
-                                                <div class="col-xl-3 col-lg-3">
-                                                    No 112, Colombo 05.
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    0115214759
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    contact@singer.lk
-                                                </div>
-                                                
-                                            </div>
-                                          </li>
-                                          <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col-xl-2 col-lg-2">
-                                                    SUP0003
-                                                </div>
-                                                <div class="col-xl-3 col-lg-3">
-                                                    John Keells Holdings
-                                                </div>
-                                                <div class="col-xl-3 col-lg-3">
-                                                    No.117, Colombo 02.
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    0116845217
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    contact@keells.lk
-                                                </div>
-                                                
-                                            </div>
-                                          </li>
-                                          <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col-xl-2 col-lg-2">
-                                                    SUP0004
-                                                </div>
-                                                <div class="col-xl-3 col-lg-3">
-                                                    iShop.LK
-                                                </div>
-                                                <div class="col-xl-3 col-lg-3">
-                                                    Galle Rd., Colombo 04.
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    0779992123
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    contact@ishop.lk
-                                                </div>
-                                                
-                                            </div>
-                                          </li>
-                                          <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col-xl-2 col-lg-2">
-                                                    SUP0005
-                                                </div>
-                                                <div class="col-xl-3 col-lg-3">
-                                                    Singhagiri (Pvt) Ltd.
-                                                </div>
-                                                <div class="col-xl-3 col-lg-3">
-                                                    No.515, Colombo 10.
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    0115413413
-                                                </div>
-                                                <div class="col-xl-2 col-lg-2">
-                                                    websales@singhagiri.lk
-                                                </div>
-                                                
-                                            </div>
-                                          </li>
+                                              <div id="listItem"></div>
                                         </ul>
+                                        <div class="row">
+                                            <div class="col-xl-12 col-lg-12">
+                                                <div id="pageSpinner" class="d-none">Loading...</div>
+                                            </div>
+                                        </div>
                                       </div>
                                 </div>
                             </div>
@@ -315,7 +219,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="index.html">Logout</a>
                 </div>
             </div>
         </div>
@@ -330,6 +234,21 @@
 
     <!-- Custom scripts for all pages-->
     <script src="./js/custom-js.js"></script>
+
+    <script>
+        //Ajax for load stock records from DB
+        $(document).ready(function(){
+            $("#pageSpinner").removeClass("d-none");
+            $.ajax({
+                type: 'POST',
+                url: 'https://se-project-chinthanagsm.herokuapp.com/mngr_load_suppliers.php',
+                success: function(response) {
+                    $('#listItem').html(response);
+                    $("#pageSpinner").addClass("d-none");
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
